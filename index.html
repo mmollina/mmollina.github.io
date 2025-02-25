@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcelo Mollinari, PhD - Research Assistant Professor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/profile.jpg" alt="Marcelo Mollinari" class="profile-pic">
+            <h1>Marcelo Mollinari, PhD</h1>
+            <p>
+                <a href="https://cals.ncsu.edu/horticultural-science/people/mmollin/" target="_blank"
+                    class="custom-link">Research Assistant Professor</a> |
+                <a href="https://brc.ncsu.edu/" target="_blank" class="custom-link">NCSU Bioinformatics Research
+                    Center</a> |
+                <a href="https://cals.ncsu.edu/horticultural-science/" target="_blank" class="custom-link">NCSU
+                    Department of Horticultural</a>
+            </p>
+            <div class="social-links">
+                <a href="doc/Marcelo_Mollinari_CV_Feb_2025.pdf" class="social-link" download>
+                    <img src="images/cv-icon.png" alt="CV Icon" class="icon">
+                </a>
+                <a href="http://goo.gl/GW7K0" target="_blank" class="social-link">
+                    <img src="images/google-scholar-icon.png" alt="Google Scholar" class="icon">
+                </a>
+                <a href="https://www.linkedin.com/in/mmollina" target="_blank" class="social-link">
+                    <img src="images/linkedin-icon.png" alt="LinkedIn" class="icon">
+                </a>
+                <a href="https://github.com/mmollina" target="_blank" class="social-link">
+                    <img src="images/github-icon.png" alt="GitHub" class="icon">
+                </a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#software">Software</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#teaching">Talks, Workshops and Teaching</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="section fade-in">
+            <h2>About Me</h2>
+            <p>Welcome to my personal website! I am Dr. Marcelo Mollinari, a Research Assistant Professor at North
+                Carolina State University, affiliated with both the Bioinformatics Research Center and the Department of
+                Horticultural Science. I specialize in bioinformatics and plant genetics, leading research in
+                diploid and polyploid breeding systems by developing unique algorithms that analyze interconnected
+                families and translate genomic data into actionable insights. I collaborate closely with breeders of
+                various crop species—including potatoes, sweetpotatoes, berries, and sugarcane to improve crop
+                productivity, resilience, and sustainability. My interest lies in bridging the gap between data science
+                and agricultural innovation, ultimately providing
+                genetic analysis tools that support discovery and practical breeding solutions
+                for researchers and breeders.</p>
+        </section>
+
+        <section id="research" class="section fade-in">
+            <h2>Research</h2>
+            <p>My research interests span a wide range of topics in bioinformatics and plant genomics, with a focus on
+                genetic analysis in outcrossing diploid and polyploid species. Here’s a brief overview of my work:</p>
+            <ul>
+                <li>
+                    <strong>Statistical Method Development:</strong> I work on practical methods for genetic mapping,
+                    QTL analysis, and quantitative trait analysis in interconnected populations of diploids and
+                    polyploids.
+                </li>
+                <li>
+                    <strong>Haplotype Inference and Consensus Mapping:</strong> By constructing consensus genetic maps
+                    and inferring population haplotypes, I enhance data accuracy and provide a clearer picture of
+                    genetic relationships. My algorithms are designed to handle crosses within the same even ploidy
+                    levels (2, 4, and 6) as well as crosses between different ploidy levels.
+                </li>
+                <li> <strong>Software Implementations:</strong> The most sophisticated models are incomplete without
+                    software that can efficiently handle and
+                    analyze real datasets. To address this, I have developed several R packages, including
+                    <strong>MAPpoly</strong>, <strong>MAPpoly2</strong>, <strong>QTLpoly</strong>,
+                    <strong>VIEWpoly</strong>, and <strong>GGSpoly</strong> (currently in development). The core
+                    functions responsible for the heavy lifting in high-dimensional genetic systems are implemented in
+                    C++ (a language I’m a big fan of!) to ensure high performance and scalability.
+                </li>
+                <li> <strong>Web-Based Platforms:</strong> More recently, I have been developing a web-based platform
+                    called <strong>GGSpoly</strong>,
+                    designed to help breeders analyze genomic data in diploid and polyploid species. This platform will
+                    offer an intuitive interface for users to upload and analyze their data, visualize results, and
+                    explore
+                    genetic relationships with ease.
+                </li>
+            </ul>
+            <figure>
+                <img src="images/AFRI-2025.png" alt="Workflow of MAPpoly2 and GGSpoly">
+                <figcaption>
+                    Workflow illustrating the implementation of the models and tools developed in MAPpoly2 and GGSpoly.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="software" class="section fade-in">
+            <h2>Software</h2>
+            <p> These are some software tools I have maintained and contributed to:</p>
+            <ul>
+                <li>
+                    <button class="expand-button" onclick="toggleContent('mappoly2-content')">
+                        <strong>MAPpoly2</strong>
+                    </button> – Genetic maps in interconnected diploid and autopolyploid families.
+                    <a href="https://github.com/mmollina/mappoly2" target="_blank" class="custom-link">GitHub
+                        Repository</a> (creator)
+
+                    <div id="mappoly2-content" class="hidden-content">
+                        <p>
+                            <strong>MAPpoly2</strong> is an advanced R package designed for constructing genetic maps in
+                            interconnected
+                            full-sib autopolyploid families. This enhanced version prioritizes user-friendliness and
+                            accessibility, with
+                            improvements geared toward seamless integration with tools like <strong>R Shiny</strong> to
+                            provide an intuitive
+                            interface for polyploid genetic mapping. The package supports ploidy levels of 2, 4, and 6,
+                            allowing for any
+                            combination of these configurations, making it highly versatile for diverse research needs.
+                        </p>
+                        <p>
+                            A standout feature of <strong>MAPpoly2</strong> is its significantly enhanced performance,
+                            achieved through
+                            the integration of computationally intensive code implemented in <strong>C++</strong>. This
+                            optimization enables
+                            the efficient analysis of large and complex datasets, addressing a common bottleneck in
+                            genetic mapping workflows.
+                        </p>
+                        <img src="images/hmm.png" alt="HMM in multiple families" />
+                        <p>
+                            The package employs a robust <strong>Hidden Markov Model (HMM)</strong> framework to
+                            construct individual
+                            genetic maps for each parent. These maps are then combined into a comprehensive joint map,
+                            which is recomputed
+                            to incorporate any remaining markers, ensuring high accuracy and resolution in the final
+                            results. These innovations
+                            make <strong>MAPpoly2</strong> an invaluable tool for researchers working with polyploid
+                            species and large-scale
+                            genomic datasets.
+                        </p>
+                        <img src="images/mappoly2.png" alt="MAPpoly2 Overview" />
+                    </div>
+                </li>
+                <!-- MAPpoly -->
+                <li>
+                    <button class="expand-button" onclick="toggleContent('mappoly-content')">
+                        <strong>MAPpoly</strong>
+                    </button> – Genetic maps in diploids and autopolyploids.
+                    <a href="https://CRAN.R-project.org/package=mappoly" target="_blank" class="custom-link">CRAN
+                        Package</a> (creator)
+
+                    <div id="mappoly-content" class="hidden-content">
+                        <p><strong>MAPpoly</strong> is a tool for genetic mapping in diploids and autopolyploids,
+                            providing statistical models...</p>
+                        <img src="images/mappoly.png" alt="MAPpoly Figure" />
+                    </div>
+                </li>
+
+                <!-- VIEWpoly -->
+                <li>
+                    <button class="expand-button" onclick="toggleContent('viewpoly-content')">
+                        <strong>VIEWpoly</strong>
+                    </button> – Visualization of Genetic Analysis in Polyploids.
+                    <a href="https://CRAN.R-project.org/package=viewpoly" target="_blank" class="custom-link">CRAN
+                        Package</a> (conceptual
+                    lead)
+
+                    <div id="viewpoly-content" class="hidden-content">
+                        <p>
+                            <strong>VIEWpoly</strong> offers a powerful graphical user interface designed for
+                            integrating, visualizing, and
+                            exploring results from linkage and quantitative trait loci (QTL) analyses, along with
+                            genomic data, specifically
+                            tailored for autopolyploid and diploid species. This interactive application allows users to
+                            seamlessly upload and
+                            combine various data sources, including gene annotations and alignment files, to facilitate
+                            candidate gene exploration
+                            in an integrated genome browser.
+                        </p>
+                        <p>
+                            VIEWpoly supports input from multiple tools beyond MAPpoly, including
+                            <strong>polymapR</strong>,
+                            <strong>diaQTL</strong>, <strong>QTLpoly</strong>, and <strong>polyqtlR</strong>, making it
+                            a versatile solution
+                            for researchers working with complex polyploid genetics. By enabling the integration of
+                            diverse datasets, VIEWpoly
+                            provides an interactive platform for comprehensive analysis and discovery in polyploid
+                            research.
+                        </p>
+                        <a href="https://www.youtube.com/watch?v=OBt_jebhfeY" target="_blank" class="custom-link">
+                            <img src="https://img.youtube.com/vi/OBt_jebhfeY/0.jpg" alt="VIEWpoly tutorial" />
+                        </a>
+                    </div>
+                </li>
+                <!-- QTLpoly -->
+                <li>
+                    <button class="expand-button" onclick="toggleContent('qtlpoly-content')">
+                        <strong>QTLpoly</strong>
+                    </button> – Random-Effect Multiple QTL Mapping in Autopolyploids.
+                    <a href="https://CRAN.R-project.org/package=qtlpoly" target="_blank" class="custom-link">CRAN
+                        Package</a> (contributor)
+
+                    <div id="qtlpoly-content" class="hidden-content">
+                        <p><strong>QTLpoly</strong> The R package QTLpoly is software to map quantitative trait loci
+                            (QTL) in full-sib families of outcrossing autopolyploid species based on a random-effect
+                            multiple QTL model (Pereira et al. 2020). Variance components associated with putative QTL
+                            are tested using score statistics (Qu et al. 2013), and final models are fitted using
+                            residual maximum likelihood (REML, adapted from the R package sommer). </p>
+                        <img src="images/qtlpoly.png" alt="QTLpoly Figure" style="width: 25%; height: auto;" />
+                    </div>
+                </li>
+
+                <!-- OneMap -->
+                <li>
+                    <button class="expand-button" onclick="toggleContent('onemap-content')">
+                        <strong>OneMap</strong>
+                    </button> – Genetic mappings in experimental crosses.
+                    <a href="https://CRAN.R-project.org/package=onemap" target="_blank" class="custom-link">CRAN
+                        Package</a> (co-creator)
+
+                    <div id="onemap-content" class="hidden-content">
+                        <p><strong>OneMap</strong> is a software package designed for constructing genetic maps in
+                            experimental crosses, including full-sib, RILs, F2, and backcross populations. Originally
+                            developed by Gabriel R. A. Margarido, myself (Marcelo Mollinari), and A. Augusto F. Garcia,
+                            the project later welcomed contributions from Rodrigo R. Amadeu, Cristiane H. Taniguti, and
+                            Getulio C. Ferreira.
+                            OneMap has been available on CRAN for several years, with its most recent stable version
+                            released in 2020. The CRAN version is recommended for most users, while the development
+                            version—featuring ongoing improvements and experimental functions—is hosted on GitHub.
+                            A major milestone for OneMap was the integration of support for sequencing-based markers,
+                            such as those from Illumina and GBS technologies, allowing users to analyze modern genomic
+                            datasets effectively. The package provides a comprehensive set of functions for building
+                            linkage maps, with some specialized functions running internally to optimize analysis
+                            workflows.</p>
+                        <img src="images/onemap.png" alt="OneMap Figure" style="width: 25%; height: auto;" />
+                    </div>
+                </li>
+
+                <!-- GGSpoly -->
+                <li>
+                    <button class="expand-button" onclick="toggleContent('ggspoly-content')">
+                        <strong>GGSpoly</strong>
+                    </button> – Web-based platform for genomic data analysis in diploid and polyploid species.
+                    <a href="https://go.ncsu.edu/ggspoly" target="_blank" class="custom-link">Under development</a>
+                    (co-creator)
+
+                    <div id="ggspoly-content" class="hidden-content">
+                        <p><strong>GGSpoly</strong> is a web-based tool for genomic data analysis in diploid and
+                            polyploid species. It provides an intuitive interface for breeders and researchers to
+                            upload, analyze, and visualize genomic data. The platform supports various genetic analysis
+                            tasks, including haplotype inference, QTL mapping, and consensus map construction. GGSpoly
+                            aims to bridge the gap between complex genetic models and practical breeding applications,
+                            making advanced genomic tools accessible to a broader audience.
+                            <img src="images/ggspoly.png" alt="GGSpoly Figure" />
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+        <section id="publications" class="section fade-in">
+            <h2>Selected Publications</h2>
+            <div id="publications-list" class="collapsed">
+                <ul>
+                    <li><strong>Mollinari M</strong>, Garcia AAF. (2019). Linkage analysis and haplotype phasing in
+                        experimental autopolyploid populations with high ploidy level using hidden Markov models.
+                        <em>G3: Genes, Genomes, Genetics</em>, <a href="https://doi.org/10.1534/g3.119.400378"
+                            target="_blank" class="custom-link">https://doi.org/10.1534/g3.119.400378</a>.
+                    </li>
+                    <li><strong>Mollinari M</strong>, Olukolu BA, Pereira G da S, Khan A, Gemenet DC, Yencho GC, Zeng
+                        ZB. (2020). Unraveling the hexaploid sweetpotato inheritance using ultra-dense multilocus
+                        mapping. <em>G3: Genes, Genomes, Genetics</em>, <a href="https://doi.org/10.1534/g3.119.400620"
+                            target="_blank" class="custom-link">https://doi.org/10.1534/g3.119.400620</a>.</li>
+                    <li>Taniguti CH, Gesteira G de S, Lau J, Pereira G da S, Zeng Z-B, Byrne DH, Riera-Lizarazu O,
+                        <strong>Mollinari M</strong>. (2023). VIEWpoly: a visualization tool to integrate and explore
+                        results of polyploid genetic analysis. <em>J. Open Source Softw.</em>, 7(74), 4242. <a
+                            href="https://doi.org/10.21105/joss.04242" target="_blank"
+                            class="custom-link">https://doi.org/10.21105/joss.04242</a>.
+                    </li>
+                    <li>Wu S, Sun H, Hamilton JP, <strong>Mollinari M</strong>, Gesteira SG, Kitavi M, Yan M, Kreuze J,
+                        Yencho GC, Buell R, Fei Z. (2024). Phased chromosome-level genome assembly offers new insights
+                        into the origin of hexaploid sweetpotato. <em>bioRxiv</em>. <a
+                            href="https://doi.org/10.1101/2024.08.17.608395" target="_blank"
+                            class="custom-link">https://doi.org/10.1101/2024.08.17.608395</a>. Under review.</li>
+                    <li>Gesteira GS, Pereira GS, Zeng ZB, <strong>Mollinari M</strong>. (2024). Genetic maps in
+                        sweetpotato. In <em>The Sweetpotato Genome</em> (pp. 45-68). <a
+                            href="https://doi.org/10.1007/978-3-031-65003-1_5" target="_blank"
+                            class="custom-link">https://doi.org/10.1007/978-3-031-65003-1_5</a>.</li>
+                </ul>
+            </div>
+            <!-- Add this link below the publications list -->
+            <div class="publications-link">
+                <a href="https://scholar.google.com/citations?user=oUaRf4oAAAAJ&hl=en" target="_blank"
+                    class="custom-link" class="scholar-link">
+                    See Google Scholar for complete list of publications
+                </a>
+            </div>
+        </section>
+        
+        <section id="teaching" >
+            <h2>Talks, Workshops and Teaching</h2>
+            <p>Here are slides from some of the talks, workshops, and lectures I've given over the years:</p>
+            <ul>
+                <li>
+                    <a href="doc/BI_Cornell_Workshop.pdf">Theoretical and Practical Aspects of Linkage Analysis</a> – 
+                    A workshop presentation from the Breeding Insight Workshop at Cornell covering linkage analysis in diploids and polyploids, including genetic segregation, genotype calling, and polyploid inheritance patterns.
+                </li>
+                <li>
+                    <a href="doc/Genomic_Challenges_in_Polyploid_Crops.pdf">Genomic Challenges in Polyploid Crops</a> – 
+                    Overview of the difficulties in genomic analysis and breeding of polyploids, covering variant discovery, genotype calling, and QTL mapping strategies.
+                </li>
+                <li>
+                    <a href="doc/HS_703_Importance_of_polyploidy_inheritance_patterns_and_manipulation.pdf">HS 703: Importance of Polyploidy, Inheritance Patterns, and Manipulation</a> – 
+                    Lecture discussing fundamental aspects of polyploid genetics, including meiotic pairing, gamete formation, and methods for analyzing segregation in polyploids.
+                </li>
+                <li>
+                    <a href="doc/Introduction_to_MAPpoly.pdf">Introduction to MAPpoly</a> – 
+                    A training session on the MAPpoly software for genetic mapping in polyploids, detailing installation, data import, filtering, and map construction.
+                </li>
+                <li>
+                    <a href="doc/Merging_maps_from_multiple_populations.pdf">Merging Maps from Multiple Populations</a> – 
+                    Explores methods for integrating genetic maps from multiple populations, with emphasis on recombination fractions, linkage phases, and marker ordering.
+                </li>
+                <li>
+                    <a href="doc/The_Sweetpotato_Genome.pdf">The Sweetpotato Genome</a> – 
+                    Our book discusses the sequencing efforts and genetic research on sweetpotato, including its significance for food security, genomic resources, and marker-assisted breeding.
+                </li>
+                <li>
+                    <a href="doc/Universidade_Federal_de_Goias_Polyploid_Genetics_Lecture.pdf">Genetic Mapping in Polyploids: From Genotyping to Haplotype Reconstruction</a> – 
+                    Lecture at Universidade Federal de Goiás explaining key concepts in genetic mapping of polyploids, including linkage analysis, meiotic configurations, and computational tools.
+                </li>
+                <li>
+                    <a href="doc/Updates-Introducing_MAPpoly2-and_updates_QTLpoly-2024-workshop.pdf">Updates: Introducing MAPpoly2 and QTLpoly</a> – 
+                    A presentation on recent developments in MAPpoly2 and QTLpoly, focusing on mixed-ploidy crosses, haplotype probabilities, and new computational methods.
+                </li>
+            </ul>
+            
+        </section>
+        <section id="misc-scripts" class="section fade-in">
+            <h2>Miscellaneous Scripts</h2>
+            <p>Explore additional scripts and resources related to my research and software development:</p>
+            <ul>
+                <li>
+                    <a href="https://github.com/mmollina/MAPpoly_vignettes/tree/master/misc_scripts" target="_blank" class="custom-link">
+                        Miscellaneous Scripts on GitHub
+                    </a> – A collection of scripts and resources for various bioinformatics and genetic analysis tasks.
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Marcelo Mollinari. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleFigure(id) {
+            const fig = document.getElementById(id);
+            if (fig.style.display === 'none') {
+                fig.style.display = 'block';
+            } else {
+                fig.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            if (content.classList.contains('visible')) {
+                content.classList.remove('visible'); // Collapse
+            } else {
+                content.classList.add('visible'); // Expand
+            }
+        }
+    </script>
+</body>
+
+</html>

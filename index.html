@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcelo Mollinari, PhD - Research Assistant Professor</title>
+    <title>Marcelo Mollinari, PhD - Consultant, Quantitative Genetics & Bioinformatics</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -16,13 +16,11 @@
             <img src="images/profile.jpg" alt="Marcelo Mollinari" class="profile-pic">
             <h1>Marcelo Mollinari, PhD</h1>
             <p>
-                <a href="https://cals.ncsu.edu/horticultural-science/people/mmollin/" target="_blank"
-                    class="custom-link">Research Assistant Professor</a> |
-                <a href="https://brc.ncsu.edu/" target="_blank" class="custom-link">NCSU Bioinformatics Research
-                    Center</a> |
-                <a href="https://cals.ncsu.edu/horticultural-science/" target="_blank" class="custom-link">NCSU
-                    Department of Horticultural</a>
+                Consultant, Quantitative Genetics &amp; Bioinformatics ·
+                <a href="https://www.abacusbio.com/" target="_blank" class="custom-link">AbacusBio</a>
             </p>
+            <p>Breeding analytics · Genomic prediction · Mixed models · Polyploid genomics · Scientific software (R/C++)</p>
+            <p class="muted">Previously: Research Assistant Professor, North Carolina State University</p>
             <div class="social-links">
                 <a href="doc/Marcelo_Mollinari_CV_Feb_2025.pdf" class="social-link" download>
                     <img src="images/cv-icon.png" alt="CV Icon" class="icon">
@@ -42,59 +40,30 @@
     <nav>
         <ul>
             <li><a href="#about">About Me</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#software">Software</a></li>
+            <li><a href="#research">Capabilities</a></li>
+            <li><a href="#engagements">Selected Work</a></li>
+            <li><a href="#software">Open-source software</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#teaching">Talks, Workshops and Teaching</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <section id="about" class="section fade-in">
             <h2>About Me</h2>
-            <p>Welcome to my website! I am Dr. Marcelo Mollinari, a Research Assistant Professor at North
-                Carolina State University, affiliated with both the Bioinformatics Research Center and the Department of
-                Horticultural Science. I specialize in bioinformatics and plant genetics, leading research in
-                diploid and polyploid breeding systems by developing unique algorithms that analyze interconnected
-                families and translate genomic data into actionable insights. I collaborate closely with breeders of
-                various crop species, including potatoes, sweetpotatoes, berries, and sugarcane to improve crop
-                productivity, resilience, and sustainability. My interest lies in bridging the gap between data science
-                and agricultural innovation, ultimately providing
-                genetic analysis tools that support discovery and practical breeding solutions
-                for researchers and breeders.</p>
+            <p>I am a consultant in quantitative genetics and bioinformatics at AbacusBio, helping breeding programs turn complex data into reliable selection decisions. My work focuses on genetic evaluation, genomic prediction, and practical analytics that improve accuracy, shorten breeding cycles, and support cost-effective deployment strategies.</p>
+            <p>I design and implement reproducible workflows for genotype and phenotype curation, mixed-model analysis, model monitoring, and decision-ready reporting. Across diploid and polyploid contexts, I combine statistical rigor with production-ready R/C++ tooling so teams can move from analysis to action.</p>
         </section>
 
         <section id="research" class="section fade-in">
-            <h2>Research</h2>
-            <p>My research interests span a wide range of topics in bioinformatics and plant genomics, with a focus on
-                genetic analysis in outcrossing diploid and polyploid species. Here’s a brief overview of my work:</p>
-            <ul>
-                <li>
-                    <strong>Statistical Method Development:</strong> I work on practical methods for genetic mapping,
-                    QTL analysis, and quantitative trait analysis in interconnected populations of diploids and
-                    polyploids.
-                </li>
-                <li>
-                    <strong>Haplotype Inference and Consensus Mapping:</strong> By constructing consensus genetic maps
-                    and inferring population haplotypes, I enhance data accuracy and provide a clearer picture of
-                    genetic relationships. My algorithms are designed to handle crosses within the same even ploidy
-                    levels (2, 4, and 6) as well as crosses between different ploidy levels.
-                </li>
-                <li> <strong>Software Implementations:</strong> The most sophisticated models are incomplete without
-                    software that can efficiently handle and
-                    analyze real datasets. To address this, I have developed several R packages, including
-                    <strong>MAPpoly</strong>, <strong>MAPpoly2</strong>, <strong>QTLpoly</strong>,
-                    <strong>VIEWpoly</strong>, and <strong>GGSpoly</strong> (currently in development). The core
-                    functions responsible for the heavy lifting in high-dimensional genetic systems are implemented in
-                    C++ (a language I’m a big fan of!) to ensure high performance and scalability.
-                </li>
-                <li> <strong>Web-Based Platforms:</strong> More recently, I have been developing a web-based platform
-                    called <strong>GGSpoly</strong>,
-                    designed to help breeders analyze genomic data in diploid and polyploid species. This platform will
-                    offer an intuitive interface for users to upload and analyze their data, visualize results, and
-                    explore
-                    genetic relationships with ease.
-                </li>
+            <h2>Capabilities</h2>
+            <ul class="two-col-list">
+                <li><strong>Genetic evaluation:</strong> BLUP/GBLUP pipelines, multi-trait and multi-environment models, spatial/heterogeneity effects, and model diagnostics for operational decisions.</li>
+                <li><strong>Genomic prediction:</strong> Cross-validation design, training population design, and ongoing monitoring of prediction accuracy and model drift.</li>
+                <li><strong>Breeding decision support:</strong> Selection indices, economic weighting, genotyping strategy, and cost-benefit tradeoffs aligned with program goals.</li>
+                <li><strong>Polyploid analytics:</strong> Robust handling of dosage uncertainty, mapping/phasing pitfalls, and interpretation risks in complex ploidy systems.</li>
+                <li><strong>Software &amp; reproducibility:</strong> Production-focused R/C++ tooling, package development, automated pipelines, and reporting for repeatable analysis workflows.</li>
             </ul>
             <figure>
                 <img src="images/AFRI-2025.png" alt="Workflow of MAPpoly2 and GGSpoly">
@@ -104,9 +73,21 @@
             </figure>
         </section>
 
+        <section id="engagements" class="section fade-in">
+            <h2>Selected Work</h2>
+            <ul>
+                <li>Built genomic prediction workflows for multi-environment breeding trials, including validation and deployment checkpoints.</li>
+                <li>Developed genotype data QC and curation pipelines with automated flags and reproducible reporting.</li>
+                <li>Implemented mixed-model evaluation and reporting for routine selection decisions in operational breeding contexts.</li>
+                <li>Designed decision-support analyses for trait weighting, candidate ranking, and genotyping investment planning.</li>
+            </ul>
+            <p class="muted">Representative examples. Details available upon request.</p>
+        </section>
+
         <section id="software" class="section fade-in">
-            <h2>Software</h2>
-            <p> These are some software tools I have maintained and contributed to:</p>
+            <h2>Open-source software</h2>
+            <p class="muted">These open-source projects are independent of client engagements and shared for research and community use.</p>
+            <p>These are some software tools I have maintained and contributed to:</p>
             <ul>
                 <li>
                     <button class="expand-button" onclick="toggleContent('simpoly-content')">
@@ -265,7 +246,7 @@
                     <button class="expand-button" onclick="toggleContent('ggspoly-content')">
                         <strong>GGSpoly</strong>
                     </button> – Web-based platform for genomic data analysis in diploid and polyploid species.
-                    <a href="https://go.ncsu.edu/ggspoly" target="_blank" class="custom-link">Under development</a>
+                    <a href="https://github.com/mmollina/ggspoly" target="_blank" class="custom-link">GitHub Repository</a>
                     (co-creator)
 
                     <div id="ggspoly-content" class="hidden-content">
@@ -359,6 +340,8 @@
             </ul>
             
         </section>
+        
+
         <section id="misc-scripts" class="section fade-in">
             <h2>Miscellaneous Scripts</h2>
             <p>Explore additional scripts and resources related to my research and software development:</p>
@@ -373,6 +356,16 @@
                         Miscellaneous Scripts on GitHub
                     </a> – A collection of scripts and resources for various bioinformatics and genetic analysis tasks.
                 </li>
+            </ul>
+        </section>
+        <section id="contact" class="section fade-in">
+            <h2>Contact</h2>
+            <p>For consulting inquiries in quantitative genetics and bioinformatics, please get in touch:</p>
+            <ul>
+                <li>Email: <a href="mailto:marcelo.mollinari@proton.me" class="custom-link">marcelo.mollinari@proton.me</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/mmollina" target="_blank" class="custom-link">linkedin.com/in/mmollina</a></li>
+                <li>GitHub: <a href="https://github.com/mmollina" target="_blank" class="custom-link">github.com/mmollina</a></li>
+                <li>Google Scholar: <a href="https://scholar.google.com/citations?user=oUaRf4oAAAAJ&hl=en" target="_blank" class="custom-link">scholar profile</a></li>
             </ul>
         </section>
     </div>
@@ -403,3 +396,5 @@
 </body>
 
 </html>
+
+

@@ -306,3 +306,24 @@ figcaption {
         font-size: 1.8rem;
     }
 }
+
+.muted {
+    color: #5f6b6f;
+    font-size: 0.95rem;
+}
+
+.two-col-list {
+    columns: 1;
+    column-gap: 2rem;
+}
+
+@media (min-width: 992px) {
+    .two-col-list {
+        columns: 2;
+    }
+
+    .two-col-list li {
+        break-inside: avoid;
+    }
+}
+

@@ -8,7 +8,7 @@
     <meta name="description" content="Marcelo Mollinari is a quantitative geneticist at AbacusBio working on statistical methods, plant breeding, and open-source scientific software, including MAPpoly, MAPpoly2, OneMap, and VIEWpoly.">
     <meta name="author" content="Marcelo Mollinari">
     <link rel="canonical" href="https://mmollina.github.io/">
-    <meta name="theme-color" content="#0f766e">
+    <meta name="theme-color" content="#a8453a">
 
     <meta property="og:type" content="profile">
     <meta property="og:site_name" content="Marcelo Mollinari">
@@ -30,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=103bbb18f7">
 </head>
 
 <body>
@@ -249,6 +249,7 @@
         <!-- Software -->
         <section id="software" class="section section-alt" aria-labelledby="software-title">
             <span id="ggspoly-content" class="anchor-alias" aria-hidden="true"></span>
+            <span id="simpoly-content" class="anchor-alias" aria-hidden="true"></span>
             <div class="wrap">
                 <header class="section-head">
                     <h2 id="software-title">Software</h2>
@@ -256,33 +257,35 @@
                 </header>
 
                 <ul class="software-list">
-                    <li id="mappoly2-content">
+                    <li class="sw-combined">
                         <div class="sw-head">
-                            <h3>MAPpoly2</h3>
+                            <h3>MAPpoly &amp; MAPpoly2</h3>
                             <span class="tag">Creator</span>
                         </div>
-                        <p>Linkage maps across interconnected diploid and autopolyploid families.</p>
-                        <p class="links"><a href="https://github.com/mmollina/mappoly2">GitHub</a></p>
-                    </li>
-                    <li id="mappoly-content">
-                        <div class="sw-head">
-                            <h3>MAPpoly</h3>
-                            <span class="tag">Creator</span>
+                        <div class="sw-tools">
+                            <div class="sw-tool" id="mappoly-content">
+                                <h4>MAPpoly</h4>
+                                <p>Linkage analysis and haplotype phasing within diploid and autopolyploid families.</p>
+                                <p class="links">
+                                    <a href="https://CRAN.R-project.org/package=mappoly">MAPpoly on CRAN</a>
+                                    <a href="https://github.com/mmollina/MAPpoly">MAPpoly on GitHub</a>
+                                </p>
+                            </div>
+                            <div class="sw-tool" id="mappoly2-content">
+                                <h4>MAPpoly2</h4>
+                                <p>Integrated linkage maps across interconnected diploid and autopolyploid families.</p>
+                                <p class="links">
+                                    <a href="https://github.com/mmollina/mappoly2">MAPpoly2 on GitHub</a>
+                                </p>
+                            </div>
                         </div>
-                        <p>Linkage analysis and haplotype phasing in diploids and autopolyploids.</p>
-                        <p class="links">
-                            <a href="https://CRAN.R-project.org/package=mappoly">CRAN</a>
-                            <a href="https://github.com/mmollina/MAPpoly">GitHub</a>
-                        </p>
                     </li>
                     <li id="onemap-content">
                         <div class="sw-head">
                             <h3>OneMap</h3>
                             <span class="tag">Co-creator</span>
                         </div>
-                        <p>Linkage maps in experimental crosses: full-sib, RIL, F2, and backcross. Co-created with
-                            Gabriel R. A. Margarido and A. Augusto F. Garcia; later contributors include Rodrigo R.
-                            Amadeu, Cristiane H. Taniguti, and Getulio C. Ferreira.</p>
+                        <p>Linkage maps in experimental crosses: full-sib, RIL, F2, and backcross.</p>
                         <p class="links">
                             <a href="https://CRAN.R-project.org/package=onemap">Current release on CRAN</a>
                             <a href="https://github.com/Cristianetaniguti/onemap">Development version</a>
@@ -322,12 +325,6 @@
                         </p>
                     </li>
                 </ul>
-
-                <p class="minor" id="simpoly-content">
-                    <strong>Also available:</strong>
-                    <a href="https://github.com/mmollina/SIMpoly">SIMpoly</a> (creator), a small simulation tool
-                    written to test MAPpoly2. It is not intended for formal release.
-                </p>
             </div>
         </section>
 

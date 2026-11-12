@@ -7,15 +7,16 @@
     <title>Marcelo Mollinari, PhD · Quantitative Genetics, Plant Breeding &amp; Scientific Software</title>
     <meta name="description" content="Marcelo Mollinari is a quantitative geneticist at AbacusBio working on statistical methods, plant breeding, and open-source scientific software, including MAPpoly, MAPpoly2, OneMap, and VIEWpoly.">
     <meta name="author" content="Marcelo Mollinari">
-    <link rel="canonical" href="https://mmollina.github.io/">
-    <meta name="theme-color" content="#a8453a">
+    <link rel="canonical" href="https://marcelomollinari.com/">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#a23b2a">
 
     <meta property="og:type" content="profile">
     <meta property="og:site_name" content="Marcelo Mollinari">
     <meta property="og:title" content="Marcelo Mollinari, PhD · Quantitative Genetics &amp; Plant Breeding">
     <meta property="og:description" content="Quantitative geneticist at AbacusBio connecting statistical methods, work with breeders, and usable analytical tools for diploid and polyploid crops.">
-    <meta property="og:url" content="https://mmollina.github.io/">
-    <meta property="og:image" content="https://mmollina.github.io/images/profile.jpg">
+    <meta property="og:url" content="https://marcelomollinari.com/">
+    <meta property="og:image" content="https://marcelomollinari.com/images/profile.jpg">
     <meta property="og:image:width" content="640">
     <meta property="og:image:height" content="640">
     <meta property="og:image:alt" content="Portrait of Marcelo Mollinari">
@@ -24,500 +25,966 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Marcelo Mollinari, PhD · Quantitative Genetics &amp; Plant Breeding">
     <meta name="twitter:description" content="Quantitative geneticist at AbacusBio connecting statistical methods, work with breeders, and usable analytical tools.">
-    <meta name="twitter:image" content="https://mmollina.github.io/images/profile.jpg">
+    <meta name="twitter:image" content="https://marcelomollinari.com/images/profile.jpg">
+
+    <!-- Set the theme before the first paint: a saved choice wins, otherwise follow the system. -->
+    <script>
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem("theme"); } catch (e) { }
+            if (theme !== "light" && theme !== "dark") {
+                theme = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            }
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
 
     <link rel="icon" href="images/profile.jpg" type="image/jpeg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=103bbb18f7">
+    <link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css?v=43de95efe9">
+    <script type="module" src="script.js?v=d51daa8e69"></script>
+    <script type="module" src="applied.js?v=9e135b6564"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marcelo Mollinari",
+        "honorificSuffix": "PhD",
+        "url": "https://marcelomollinari.com/",
+        "image": "https://marcelomollinari.com/images/profile.jpg",
+        "jobTitle": "Quantitative Geneticist / Consultant",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "AbacusBio",
+            "url": "https://www.abacusbio.com/"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of São Paulo"
+        },
+        "knowsAbout": [
+            "Statistical and quantitative genetics",
+            "Genomic prediction and mixed models",
+            "Linkage analysis and haplotype phasing",
+            "QTL mapping",
+            "Polyploid genetics",
+            "R and C++ package development"
+        ],
+        "sameAs": [
+            "https://scholar.google.com/citations?user=oUaRf4oAAAAJ",
+            "https://github.com/mmollina",
+            "https://www.linkedin.com/in/mmollina"
+        ]
+    }
+    </script>
 </head>
 
 <body>
     <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header class="site-header">
-        <div class="bar">
+    <div class="shell">
+        <!-- Navigation. On wide screens this is a side rail drawn as a linkage map of the page:
+             one tick per section, placed where the section sits, filled up to the reading position. -->
+        <header class="site-header">
             <a class="brand" href="#top">Marcelo Mollinari</a>
-            <nav aria-label="Primary">
+            <nav class="map" aria-label="Primary">
+                <span class="map-fill" aria-hidden="true"></span>
                 <ul>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#software">Software</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li style="--i:0"><a href="#work">Work</a></li>
+                    <li style="--i:1"><a href="#software">Software</a></li>
+                    <li style="--i:2"><a href="#publications">Publications</a></li>
+                    <li style="--i:3"><a href="#about">About</a></li>
+                    <li style="--i:4" class="nav-wide"><a href="#teaching">Talks</a></li>
+                    <li style="--i:5"><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            <button class="theme-toggle" type="button" hidden>
+                <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+                    <circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M10 2.75a7.25 7.25 0 0 1 0 14.5z" fill="currentColor"/>
+                </svg>
+                <span class="theme-toggle-label">Dark theme</span>
+            </button>
+        </header>
+
+        <div class="page">
+            <main id="main" tabindex="-1">
+                <!-- Opening -->
+                <section id="top" class="hero" aria-labelledby="hero-title">
+                    <div class="wrap hero-grid">
+                        <div class="hero-text">
+                            <ul class="fields">
+                                <li>Quantitative genetics</li>
+                                <li>Plant breeding</li>
+                                <li>Scientific software</li>
+                            </ul>
+                            <h1 id="hero-title">Marcelo Mollinari, PhD</h1>
+                            <p class="role">
+                                Quantitative Geneticist / Consultant at
+                                <a href="https://www.abacusbio.com/">AbacusBio</a>
+                            </p>
+                            <p class="lede">
+                                I develop statistical methods, algorithms, and open-source software for genetic analysis
+                                and breeding, including MAPpoly and MAPpoly2 for linkage mapping and haplotype inference
+                                in diploid and polyploid populations. At AbacusBio, I build analytical workflows for
+                                field-trial analysis, genetic evaluation, genomic prediction, and
+                                genotype-by-environment modeling in commercial breeding programs across horticultural
+                                crops, forest trees, and livestock.
+                            </p>
+                            <p class="previously">Previously Research Assistant Professor, North Carolina State University.</p>
+                            <div class="actions">
+                                <a class="btn btn-primary" href="#selected-work">Selected work</a>
+                                <a class="btn btn-secondary" href="#contact">Get in touch</a>
+                            </div>
+                            <ul class="profile-links" aria-label="Professional profiles">
+                                <li><a rel="me" href="https://scholar.google.com/citations?user=oUaRf4oAAAAJ&amp;hl=en">Google Scholar</a></li>
+                                <li><a rel="me" href="https://github.com/mmollina">GitHub</a></li>
+                                <li><a rel="me" href="https://www.linkedin.com/in/mmollina">LinkedIn</a></li>
+                            </ul>
+                        </div>
+                        <div class="hero-portrait">
+                            <picture>
+                                <source type="image/webp" srcset="images/profile-320.webp 320w, images/profile-640.webp 640w"
+                                    sizes="(min-width: 48rem) 17rem, 7rem">
+                                <img src="images/profile.jpg" width="640" height="640" fetchpriority="high" decoding="async"
+                                    alt="Portrait of Marcelo Mollinari">
+                            </picture>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- How the pieces connect -->
+                <section class="approach" aria-labelledby="approach-title">
+                    <div class="wrap">
+                        <h2 id="approach-title" class="visually-hidden">Approach</h2>
+                        <ul class="approach-grid">
+                            <li>
+                                <h3>Statistical methods</h3>
+                                <p>Hidden Markov, random-effect, and mixed models for mapping, QTL analysis, genetic evaluation, and prediction.</p>
+                            </li>
+                            <li>
+                                <h3>Working with breeders</h3>
+                                <p>From research programs in polyploid crops to commercial breeding in horticultural crops, forest trees, and livestock.</p>
+                            </li>
+                            <li>
+                                <h3>Usable tools</h3>
+                                <p>Open R and C++ packages, and reproducible workflows that make analyses accessible to breeders.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Work: applied work first, then the scientific projects. The Work link in the navigation points here. -->
+                <div id="work">
+                    <!-- Applied work: method-level descriptions only, no client or project details -->
+                    <section id="applied" class="section" aria-labelledby="applied-title">
+                        <span id="engagements" class="anchor-alias" aria-hidden="true"></span>
+                        <div class="wrap">
+                            <header class="section-head">
+                                <h2 id="applied-title">Applied quantitative genetics &amp; biometrics</h2>
+                                <p>At AbacusBio I work with breeders and geneticists in commercial breeding programs
+                                    across horticultural crops, forest trees, and livestock, framing analytical
+                                    questions, evaluating alternatives, and interpreting results for breeding
+                                    decisions.</p>
+                            </header>
+
+                            <div class="projects">
+                                <article class="project">
+                                    <header class="project-head">
+                                        <h3>Breeder-facing statistical software and automated analysis</h3>
+                                    </header>
+                                    <div class="project-body">
+                                        <p>I developed an R package that takes multi-environment field-trial data from
+                                            raw observations to breeder-ready reports. It runs data diagnostics, derives
+                                            traits, specifies design-aware mixed models, and evaluates and selects among
+                                            candidate models automatically, reporting BLUPs and, where the data support
+                                            it, G×E results. The aim is reproducible analysis that reduces the
+                                            statistical complexity breeders need to manage.</p>
+                                    </div>
+                                    <figure class="viz" data-viz="field" hidden>
+                                        <figcaption class="viz-head">
+                                            <h4 class="viz-title">How does accounting for field variation change which genotypes we select?</h4>
+                                            <p class="viz-lede">Each square is one plot of a simulated field trial. A mixed model splits what was measured in each plot into three parts: what the field contributed, what the genotype contributed, and what remains unexplained.</p>
+                                        </figcaption>
+                                        <div class="viz-stage"></div>
+                                        <p class="viz-note">Simulated data. The models are fitted in your browser as you read.</p>
+                                        <details class="more viz-methods">
+                                            <summary>Methods and assumptions</summary>
+                                            <div class="more-body">
+                                                <dl class="methods">
+                                                    <dt>Simulated trial</dt>
+                                                    <dd>36 genotypes in three complete replicates, on a field of 9 rows and 12 columns (108 plots). Each replicate is a band of three rows, and genotypes are randomised within replicates. A measurement is 10 + replicate + row + column + genotype + residual, with genotype effects drawn with a standard deviation of 0.8 and residuals with 1. The four example fields differ in what the field adds: a trend across columns, nothing, differences between replicates, or trends along both rows and columns.</dd>
+                                                    <dt>Candidate models</dt>
+                                                    <dd><span class="eq"><var>y</var> = <var>μ</var> + genotype + <var>e</var></span><span class="eq"><var>y</var> = <var>μ</var> + genotype + replicate + <var>e</var></span><span class="eq"><var>y</var> = <var>μ</var> + genotype + replicate + row + column + <var>e</var></span></dd>
+                                                    <dd>The overall mean <var>μ</var> is the only fixed effect. Genotype, replicate, row and column effects are random and independent, each with its own variance, and <var>e</var> is an independent residual.</dd>
+                                                    <dt>Estimation</dt>
+                                                    <dd>Variance components are estimated by REML. The fit uses Henderson’s mixed model equations, with the residual variance profiled out of the restricted likelihood and the remaining variance ratios found by a Nelder–Mead search. It runs in the browser when the figure comes into view.</dd>
+                                                    <dt>Model comparison</dt>
+                                                    <dd>AIC = −2 log <var>L</var> + 2<var>k</var>, where <var>L</var> is the restricted likelihood and <var>k</var> the number of variance parameters. Restricted likelihoods can be compared only between models with the same fixed effects, which is the case here. Models that differ in their fixed effects would have to be compared by maximum likelihood. A variance estimated at zero still counts as a parameter.</dd>
+                                                    <dt>Predicted genetic values</dt>
+                                                    <dd>BLUPs of the genotype effects, solved from the mixed model equations at the estimated variance components. The whiskers are one standard error of prediction on either side. They do not include the uncertainty in the variance components themselves.</dd>
+                                                    <dt>The split of each plot</dt>
+                                                    <dd>For every plot, measured − <var>μ</var> = field + genotype + unexplained, exactly. The field part is the sum of the predicted replicate, row and column effects of that plot, the genotype part is the BLUP of its genotype, and the rest is the residual. The percentages under the maps are shares of the estimated variance components, not of the variance of the values drawn.</dd>
+                                                    <dt>Accuracy</dt>
+                                                    <dd>The correlation between predicted and true genetic values over the 36 genotypes, which can be shown only because the data are simulated. With complete replicates, the first two models rank genotypes exactly as their plain averages do. Only row and column terms can change the order.</dd>
+                                                    <dt>Choice of examples</dt>
+                                                    <dd>For each kind of field, the seed shown is one whose outcome is close to the average over 160 seeds, so the examples are typical rather than flattering.</dd>
+                                                    <dt>Limitations</dt>
+                                                    <dd>One trait, one trial, no missing plots, and no correlation between neighbouring plots beyond rows and columns. Real trials are rarely this tidy.</dd>
+                                                </dl>
+                                            </div>
+                                        </details>
+                                    </figure>
+                                </article>
+
+                                <article class="project">
+                                    <header class="project-head">
+                                        <h3>Genomic data integration and QA/QC</h3>
+                                    </header>
+                                    <div class="project-body">
+                                        <p>I coordinate genomic workflows from raw genotype calling to analysis-ready
+                                            data: validating pedigree relationships and replicated samples, constructing
+                                            genomic relationship matrices for genomic prediction and other genetic
+                                            analyses, and diagnosing inconsistencies before they affect results. I also
+                                            develop and adapt methods for association analysis, QTL mapping, and
+                                            inheritance reconstruction in breeding populations with interconnected
+                                            families, extending approaches beyond single-family designs.</p>
+                                    </div>
+                                    <figure class="viz" data-viz="kinship" hidden>
+                                        <figcaption class="viz-head">
+                                            <h4 class="viz-title">What happens when pedigree records disagree with genomic evidence?</h4>
+                                            <p class="viz-lede">Each cell is a pair of samples, shaded by how closely the two are related. Above the diagonal is the relationship the recorded pedigree implies; below it, the one estimated from their markers. Where the two halves do not mirror each other, something in the records needs investigating.</p>
+                                        </figcaption>
+                                        <div class="viz-stage"></div>
+                                        <p class="viz-note">Simulated data: five parents, four families that share parents, and three repeated samples.</p>
+                                        <details class="more viz-methods">
+                                            <summary>Methods and assumptions</summary>
+                                            <div class="more-body">
+                                                <dl class="methods">
+                                                    <dt>Simulated population</dt>
+                                                    <dd>Five unrelated, non-inbred parents (P1 to P5) and four full-sib families of eight offspring: A = P1 × P2, B = P2 × P3, C = P3 × P4 and D = P4 × P5, as recorded. Neighbouring families share a parent, so their offspring are half siblings. Three samples are genotyped twice, giving 40 samples.</dd>
+                                                    <dt>Genotypes</dt>
+                                                    <dd>1,200 unlinked biallelic markers, with allele frequencies in the base population drawn between 0.1 and 0.9. Parents are sampled from those frequencies and offspring by Mendelian sampling from their true parents. Each sample is genotyped separately, with 0.5% of its calls made wrong.</dd>
+                                                    <dt>Pedigree relationships</dt>
+                                                    <dd>The additive relationship matrix <var>A</var>, built by the tabular method from the recorded pedigree. The relationship of an individual with itself, and so with its own repeated sample, is 1 + <var>F</var>, which is 1 here because nobody is inbred.</dd>
+                                                    <dt>Genomic relationships</dt>
+                                                    <dd>VanRaden’s first method: <span class="eq"><var>G</var> = <var>W</var><var>W</var>′ / (2 Σ <var>p</var>(1 − <var>p</var>))</span>where <var>W</var> holds the allele counts minus twice the allele frequency <var>p</var>. The frequencies are those of the base population, known here because it is simulated, which puts <var>G</var> on the same scale as <var>A</var>. With frequencies estimated from the samples themselves, <var>G</var> is centred on the current population, and the two matrices cannot be compared directly without adjustment.</dd>
+                                                    <dt>Scale</dt>
+                                                    <dd>Genomic relationships are estimates, not proportions, and are not confined to the range from 0 to 1. Unrelated pairs scatter around zero, so many come out slightly negative, and a sample compared with its own repeat can exceed 1. The shading saturates at 0 and at 1. The profile of a sample plots the values as estimated.</dd>
+                                                    <dt>Why estimates scatter</dt>
+                                                    <dd>For two reasons: relatives do not share exactly the expected fraction of their genomes, and a finite set of markers measures that fraction with error. Here the standard deviation around the pedigree value is near 0.03.</dd>
+                                                    <dt>Flagging</dt>
+                                                    <dd>A pair is flagged when <var>G</var> and <var>A</var> differ by more than 0.15. Relationship classes are 0.25 apart, so this threshold separates them from the noise in this simulation. Real data need a threshold chosen for their own marker density, population and error rate.</dd>
+                                                    <dt>The three cases</dt>
+                                                    <dd>The records contain three deliberate errors: one offspring assigned to the wrong family, one tube holding the DNA of another individual, and one family whose recorded second parent is not its parent. The proposed corrections are the true state of the simulated population, which is why every flag disappears when they are applied.</dd>
+                                                    <dt>Limitations</dt>
+                                                    <dd>A discrepancy shows that pedigree and genotypes cannot both be right. It does not say which is wrong, or why: the same pattern can come from a recording error, a sample mix-up, contamination or poor genotype calls. These examples are deliberately clean, in a diploid population without inbreeding or missing data.</dd>
+                                                </dl>
+                                            </div>
+                                        </details>
+                                    </figure>
+                                </article>
+
+                                <article class="project">
+                                    <header class="project-head">
+                                        <h3>G×E modeling and breeding strategy</h3>
+                                    </header>
+                                    <div class="project-body">
+                                        <p>I am developing a reaction-norm framework for large-scale genetic evaluation
+                                            when environmental variables are not directly recorded, deriving
+                                            environmental descriptors from geographic, climatic, and management
+                                            information. This work is in ongoing development and validation. I also use
+                                            quantitative genetic models and simulation to compare trial designs,
+                                            selection strategies, combining-ability models, and genotyping priorities
+                                            under budget constraints, giving breeding programs evidence for these
+                                            decisions.</p>
+                                    </div>
+                                    <figure class="viz" data-viz="gxe" hidden>
+                                        <figcaption class="viz-head">
+                                            <h4 class="viz-title">Is the best genotype the same in every environment?</h4>
+                                            <p class="viz-lede">Each line is one genotype’s genetic merit along an environmental gradient. Drag the target to another environment: the five best genotypes there are drawn in blue, and they are not always the five that are best on average.</p>
+                                        </figcaption>
+                                        <div class="viz-stage"></div>
+                                        <p class="viz-note">An illustration with invented data, not a result. The framework described above is still being developed and validated.</p>
+                                        <details class="more viz-methods">
+                                            <summary>Methods and assumptions</summary>
+                                            <div class="more-body">
+                                                <dl class="methods">
+                                                    <dt>Environments</dt>
+                                                    <dd>Fourteen environments, each with four simulated descriptors. The descriptors are standardised, and the environmental index is their first principal component, scaled to mean 0 and variance 1. Here it explains about 60% of their variance. In the analysis view, the table under the axis shows the descriptors of each environment in the order of the index.</dd>
+                                                    <dt>Reaction norms</dt>
+                                                    <dd>Twenty genotypes with merit <span class="eq"><var>u</var> = <var>a</var> + <var>b</var><var>x</var></span>where <var>x</var> is the index, <var>a</var> is the genotype’s merit in the average environment and <var>b</var> its response to the gradient. Both are centred, so zero is the average of the twenty genotypes in every environment. Lines are drawn only across the range of environments observed.</dd>
+                                                    <dt>Three kinds of interaction</dt>
+                                                    <dd>No interaction: <var>b</var> = 0, so every line is flat and the lines are parallel.</dd>
+                                                    <dd>Scale only: <var>b</var> = 0.3<var>a</var>. Differences between genotypes grow along the gradient, the genetic variance changes as (1 + 0.3<var>x</var>)<sup>2</sup>, and the genetic correlation between any two environments in the range is 1.</dd>
+                                                    <dd>Re-ranking, or crossover: <var>b</var> is independent of <var>a</var>, with a standard deviation of 0.6. The genetic correlation between environments <var>x</var><sub>1</sub> and <var>x</var><sub>2</sub> is <span class="eq">(1 + 0.36 <var>x</var><sub>1</sub><var>x</var><sub>2</sub>) / √((1 + 0.36 <var>x</var><sub>1</sub><sup>2</sup>)(1 + 0.36 <var>x</var><sub>2</sub><sup>2</sup>))</span>which is below 1 and falls as the two environments move apart.</dd>
+                                                    <dt>Average performance</dt>
+                                                    <dd>A genotype’s mean merit over the fourteen environments. Because the index has mean zero, this is <var>a</var>.</dd>
+                                                    <dt>Selection comparison</dt>
+                                                    <dd>The five best genotypes at the target are compared with the five best on average performance. The share of gain captured is the mean merit at the target of the second group, divided by that of the first. In a large population this share is expected to equal the genetic correlation between the target and the average environment. With twenty genotypes it varies around that value; the seed shown is one for which the two are close.</dd>
+                                                    <dt>Limitations</dt>
+                                                    <dd>True simulated values are used throughout, so estimation error is left out. Real reaction norms need not be linear, and one index cannot describe every way in which environments differ. Placing environments by a principal component is one simple approach, shown to convey the idea. It is not the method under development, and nothing here is a result from it.</dd>
+                                                </dl>
+                                            </div>
+                                        </details>
+                                    </figure>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Selected scientific work -->
+                    <section id="selected-work" class="section" aria-labelledby="work-title">
+                        <span id="research" class="anchor-alias" aria-hidden="true"></span>
+                        <div class="wrap">
+                            <header class="section-head">
+                                <h2 id="work-title">Selected scientific work</h2>
+                                <p>Public research and software projects, from statistical models to the tools that put them to use.</p>
+                            </header>
+
+                            <div class="projects">
+                                <article class="project project-featured">
+                                    <header class="project-head">
+                                        <p class="kicker">Genetic mapping · Polyploids</p>
+                                        <h3>Multi-family linkage maps in polyploids</h3>
+                                        <p class="role-note">Creator and lead developer of MAPpoly and MAPpoly2.</p>
+                                    </header>
+                                    <div class="project-body">
+                                        <dl class="pac">
+                                            <div>
+                                                <dt>Problem</dt>
+                                                <dd>Breeding programs often work with several related crosses. Linkage maps built one family at a time contain partly different sets of markers and use only the information within each family.</dd>
+                                            </div>
+                                            <div class="pac-approach">
+                                                <dt>Approach</dt>
+                                                <dd id="approach-1">MAPpoly2 extends the single-family models in MAPpoly to interconnected diploid and autopolyploid families. A hidden Markov model builds a map for each parent. These are combined into a joint map, which is then recomputed to place the remaining markers. Ploidy levels 2, 4, and 6 can be combined in any configuration, and the computationally intensive steps are written in C++.</dd>
+                                            </div>
+                                            <div>
+                                                <dt>Contribution</dt>
+                                                <dd>Integrated linkage maps that combine information across interconnected families, implemented as open-source R software. The example output below is a consensus map for a multiparental potato population.</dd>
+                                            </div>
+                                        </dl>
+                                        <p class="links">
+                                            <a href="https://github.com/mmollina/mappoly2">MAPpoly2 on GitHub</a>
+                                            <a href="https://doi.org/10.1534/g3.119.400378">MAPpoly method (G3, 2019)</a>
+                                        </p>
+                                        <figure class="project-figure schem-figure">
+                                            <svg class="schem schem-map" viewBox="0 0 420 178" role="img" aria-labelledby="schem-title schem-desc">
+                                                <title id="schem-title">Integrating maps from several populations</title>
+                                                <desc id="schem-desc">Three populations each have markers mapped separately, at partly different positions. An arrow leads to a single consensus map that contains the markers from all three populations.</desc>
+                                                <g class="pop pop-1" data-pop="1" data-y="22">
+                                                    <text x="0" y="27">Pop 1</text>
+                                                    <line class="backbone" x1="98" y1="22" x2="402.5" y2="22"/>
+                                                    <g class="markers"><circle cx="98" cy="22" r="5" data-k="0"/><circle cx="127" cy="22" r="5" data-k="2"/><circle cx="141.5" cy="22" r="5" data-k="3"/><circle cx="156" cy="22" r="5" data-k="4"/><circle cx="185" cy="22" r="5" data-k="6"/><circle cx="199.5" cy="22" r="5" data-k="7"/><circle cx="214" cy="22" r="5" data-k="8"/><circle cx="228.5" cy="22" r="5" data-k="9"/><circle cx="243" cy="22" r="5" data-k="10"/><circle cx="272" cy="22" r="5" data-k="12"/><circle cx="286.5" cy="22" r="5" data-k="13"/><circle cx="301" cy="22" r="5" data-k="14"/><circle cx="315.5" cy="22" r="5" data-k="15"/><circle cx="330" cy="22" r="5" data-k="16"/><circle cx="359" cy="22" r="5" data-k="18"/><circle cx="373.5" cy="22" r="5" data-k="19"/><circle cx="388" cy="22" r="5" data-k="20"/><circle cx="402.5" cy="22" r="5" data-k="21"/></g>
+                                                </g>
+                                                <g class="pop pop-2" data-pop="2" data-y="54">
+                                                    <text x="0" y="59">Pop 2</text>
+                                                    <line class="backbone" x1="112.5" y1="54" x2="373.5" y2="54"/>
+                                                    <g class="markers"><circle cx="112.5" cy="54" r="5" data-k="1"/><circle cx="141.5" cy="54" r="5" data-k="3"/><circle cx="156" cy="54" r="5" data-k="4"/><circle cx="170.5" cy="54" r="5" data-k="5"/><circle cx="199.5" cy="54" r="5" data-k="7"/><circle cx="228.5" cy="54" r="5" data-k="9"/><circle cx="243" cy="54" r="5" data-k="10"/><circle cx="257.5" cy="54" r="5" data-k="11"/><circle cx="286.5" cy="54" r="5" data-k="13"/><circle cx="315.5" cy="54" r="5" data-k="15"/><circle cx="344.5" cy="54" r="5" data-k="17"/><circle cx="373.5" cy="54" r="5" data-k="19"/></g>
+                                                </g>
+                                                <g class="pop pop-3" data-pop="3" data-y="86">
+                                                    <text x="0" y="91">Pop 3</text>
+                                                    <line class="backbone" x1="127" y1="86" x2="402.5" y2="86"/>
+                                                    <g class="markers"><circle cx="127" cy="86" r="5" data-k="2"/><circle cx="185" cy="86" r="5" data-k="6"/><circle cx="214" cy="86" r="5" data-k="8"/><circle cx="257.5" cy="86" r="5" data-k="11"/><circle cx="301" cy="86" r="5" data-k="14"/><circle cx="330" cy="86" r="5" data-k="16"/><circle cx="344.5" cy="86" r="5" data-k="17"/><circle cx="388" cy="86" r="5" data-k="20"/><circle cx="402.5" cy="86" r="5" data-k="21"/></g>
+                                                </g>
+                                                <path class="schem-arrow" d="M241.2 112 h18 v12 h9 l-18 16 l-18 -16 h9 z"/>
+                                                <g class="consensus">
+                                                    <text x="0" y="164">Consensus</text>
+                                                    <rect class="cons-bar" x="92" y="150" width="316.5" height="20" rx="4"/>
+                                                    <g class="cons-ticks"><line x1="98" y1="152" x2="98" y2="168" data-k="0"/><line x1="112.5" y1="152" x2="112.5" y2="168" data-k="1"/><line x1="127" y1="152" x2="127" y2="168" data-k="2"/><line x1="141.5" y1="152" x2="141.5" y2="168" data-k="3"/><line x1="156" y1="152" x2="156" y2="168" data-k="4"/><line x1="170.5" y1="152" x2="170.5" y2="168" data-k="5"/><line x1="185" y1="152" x2="185" y2="168" data-k="6"/><line x1="199.5" y1="152" x2="199.5" y2="168" data-k="7"/><line x1="214" y1="152" x2="214" y2="168" data-k="8"/><line x1="228.5" y1="152" x2="228.5" y2="168" data-k="9"/><line x1="243" y1="152" x2="243" y2="168" data-k="10"/><line x1="257.5" y1="152" x2="257.5" y2="168" data-k="11"/><line x1="272" y1="152" x2="272" y2="168" data-k="12"/><line x1="286.5" y1="152" x2="286.5" y2="168" data-k="13"/><line x1="301" y1="152" x2="301" y2="168" data-k="14"/><line x1="315.5" y1="152" x2="315.5" y2="168" data-k="15"/><line x1="330" y1="152" x2="330" y2="168" data-k="16"/><line x1="344.5" y1="152" x2="344.5" y2="168" data-k="17"/><line x1="359" y1="152" x2="359" y2="168" data-k="18"/><line x1="373.5" y1="152" x2="373.5" y2="168" data-k="19"/><line x1="388" y1="152" x2="388" y2="168" data-k="20"/><line x1="402.5" y1="152" x2="402.5" y2="168" data-k="21"/></g>
+                                                </g>
+                                            </svg>
+                                            <figcaption>Maps from separate populations combined into one consensus map
+                                                (simplified).</figcaption>
+                                        </figure>
+                                        <details class="more">
+                                            <summary>Original figure: how MAPpoly2 builds the map</summary>
+                                            <div class="more-body">
+                                                <figure>
+                                                    <a class="zoom" href="images/hmm.webp">
+                                                        <picture>
+                                                            <source type="image/webp"
+                                                                srcset="images/hmm-1200.webp 1200w, images/hmm.webp 2438w"
+                                                                sizes="(min-width: 72rem) 40rem, 92vw">
+                                                            <img src="images/hmm.png" width="2438" height="956" loading="lazy" decoding="async"
+                                                                alt="Original figure: markers mapped separately in three populations are linked through a hidden Markov model into a single consensus map, with the full caption below the diagram.">
+                                                        </picture>
+                                                        <span class="visually-hidden">(enlarge figure)</span>
+                                                    </a>
+                                                    <figcaption>Original figure with its full caption.</figcaption>
+                                                </figure>
+                                            </div>
+                                        </details>
+                                        <details class="more">
+                                            <summary>Example output: a potato consensus map</summary>
+                                            <div class="more-body">
+                                                <figure>
+                                                    <a class="zoom" href="images/mappoly2.webp">
+                                                        <picture>
+                                                            <source type="image/webp"
+                                                                srcset="images/mappoly2-1200.webp 1200w, images/mappoly2.webp 2438w"
+                                                                sizes="(min-width: 72rem) 40rem, 92vw">
+                                                            <img src="images/mappoly2.png" width="2438" height="1064" loading="lazy" decoding="async"
+                                                                alt="MAPpoly2 output for a multiparental potato population: a population summary table, per-family and consensus maps for 12 chromosomes, and the final consensus linkage map.">
+                                                        </picture>
+                                                        <span class="visually-hidden">(enlarge figure)</span>
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                        </details>
+                                    </div>
+                                </article>
+
+                                <article class="project" id="halfsibmap-work">
+                                    <header class="project-head">
+                                        <p class="kicker">Recent methods development</p>
+                                        <h3>Maternal maps from open-pollinated families</h3>
+                                    </header>
+                                    <div class="project-body">
+                                        <dl class="pac">
+                                            <div>
+                                                <dt>Problem</dt>
+                                                <dd>In open-pollinated families the mother is known and genotyped, but the fathers are not observed. Persistent paternal haplotype-sharing tracts, as arise when some pollen parents are related to the mother, can otherwise be absorbed into the maternal recombination map.</dd>
+                                            </div>
+                                            <div class="pac-approach">
+                                                <dt>Approach</dt>
+                                                <dd id="approach-2">A source-aware hidden Markov model pairs the transmitted maternal homolog with a paternal source state, using the offspring genotypes and the genotyped mother. Paternal haplotype-sharing tracts are modelled explicitly. These states describe shared tracts statistically; they do not identify fathers. Intervals without linkage are reported as gaps rather than as large distances.</dd>
+                                            </div>
+                                            <div>
+                                                <dt>Contribution</dt>
+                                                <dd>HalfSibMap, an R package that builds maternal linkage maps and reconstructs each offspring's maternal inheritance in diploid open-pollinated families.</dd>
+                                            </div>
+                                        </dl>
+                                        <dl class="facts">
+                                            <div>
+                                                <dt>Role</dt>
+                                                <dd>Creator and lead developer, with co-authors Kim McKeever, Molly Irvin, and Fikret Isik.</dd>
+                                            </div>
+                                            <div>
+                                                <dt>Status</dt>
+                                                <dd>Available from GitHub; a methodological manuscript is in preparation.</dd>
+                                            </div>
+                                            <div>
+                                                <dt>Code</dt>
+                                                <dd><a href="https://github.com/mmollina/HalfSibMap">HalfSibMap on GitHub</a></dd>
+                                            </div>
+                                        </dl>
+                                        <figure class="project-figure schem-figure">
+                                            <svg class="schem schem-hs" viewBox="0 0 420 218" role="img" aria-labelledby="hs-title hs-desc">
+                                                <title id="hs-title">Reconstructing maternal inheritance in an open-pollinated family</title>
+                                                <desc id="hs-desc">The mother's two homologs are drawn as two bars; the fathers are not observed. Below, ten offspring are each drawn as a bar showing which maternal homolog they inherited along the linkage group, changing from one homolog to the other at each crossover. A maternal linkage map with marker positions runs along the bottom.</desc>
+                                                <g class="hs-legend">
+                                                    <rect class="hom-1" x="240" y="2.5" width="8" height="8"/><text x="252" y="10.5">homolog 1</text>
+                                                    <rect class="hom-2" x="326" y="2.5" width="8" height="8"/><text x="338" y="10.5">homolog 2</text>
+                                                </g>
+                                                <g class="hs-mother">
+                                                    <text x="0" y="31.5">Mother</text>
+                                                    <rect class="hom-1" x="108" y="18" width="296" height="7"/>
+                                                    <rect class="hom-2" x="108" y="28" width="296" height="7"/>
+                                                </g>
+                                                <g class="hs-fathers">
+                                                    <text x="0" y="54.5">Fathers</text>
+                                                    <rect class="hs-unknown" x="108" y="42" width="296" height="15" rx="2"/>
+                                                    <text class="hs-note" x="256" y="53.5" text-anchor="middle">not observed</text>
+                                                </g>
+                                                <path class="schem-arrow" d="M248.8 63 h14.4 v9.6 h7.2 l-14.4 12.8 l-14.4 -12.8 h7.2 z"/>
+                                                <g class="hs-offspring">
+                                                    <text x="0" y="141.2">Offspring</text>
+                                                    <g class="hs-row" data-y="94" data-homs="1,2" data-cross="153.9"><rect class="hom-1" x="108" y="94" width="45.9" height="7"/><rect class="hom-2" x="153.9" y="94" width="250.1" height="7"/></g>
+                                                    <g class="hs-row" data-y="103.5" data-homs="1,2" data-cross="219"><rect class="hom-1" x="108" y="103.5" width="111" height="7"/><rect class="hom-2" x="219" y="103.5" width="185" height="7"/></g>
+                                                    <g class="hs-row" data-y="113" data-homs="1,2,1" data-cross="284.1,381.8"><rect class="hom-1" x="108" y="113" width="176.1" height="7"/><rect class="hom-2" x="284.1" y="113" width="97.7" height="7"/><rect class="hom-1" x="381.8" y="113" width="22.2" height="7"/></g>
+                                                    <g class="hs-row" data-y="122.5" data-homs="1,2" data-cross="344.8"><rect class="hom-1" x="108" y="122.5" width="236.8" height="7"/><rect class="hom-2" x="344.8" y="122.5" width="59.2" height="7"/></g>
+                                                    <g class="hs-row" data-y="132" data-homs="1"><rect class="hom-1" x="108" y="132" width="296" height="7"/></g>
+                                                    <g class="hs-row" data-y="141.5" data-homs="2,1" data-cross="131.7"><rect class="hom-2" x="108" y="141.5" width="23.7" height="7"/><rect class="hom-1" x="131.7" y="141.5" width="272.3" height="7"/></g>
+                                                    <g class="hs-row" data-y="151" data-homs="2,1,2" data-cross="196.8,324.1"><rect class="hom-2" x="108" y="151" width="88.8" height="7"/><rect class="hom-1" x="196.8" y="151" width="127.3" height="7"/><rect class="hom-2" x="324.1" y="151" width="79.9" height="7"/></g>
+                                                    <g class="hs-row" data-y="160.5" data-homs="2,1" data-cross="260.4"><rect class="hom-2" x="108" y="160.5" width="152.4" height="7"/><rect class="hom-1" x="260.4" y="160.5" width="143.6" height="7"/></g>
+                                                    <g class="hs-row" data-y="170" data-homs="2,1" data-cross="365.5"><rect class="hom-2" x="108" y="170" width="257.5" height="7"/><rect class="hom-1" x="365.5" y="170" width="38.5" height="7"/></g>
+                                                    <g class="hs-row" data-y="179.5" data-homs="2"><rect class="hom-2" x="108" y="179.5" width="296" height="7"/></g>
+                                                </g>
+                                                <g class="hs-map">
+                                                    <text x="0" y="209">Maternal map</text>
+                                                    <rect class="cons-bar" x="102" y="196" width="308" height="16" rx="4"/>
+                                                    <g class="hs-ticks"><line x1="108" y1="198" x2="108" y2="210"/><line x1="122.8" y1="198" x2="122.8" y2="210"/><line x1="140.6" y1="198" x2="140.6" y2="210"/><line x1="167.2" y1="198" x2="167.2" y2="210"/><line x1="185" y1="198" x2="185" y2="210"/><line x1="208.6" y1="198" x2="208.6" y2="210"/><line x1="229.4" y1="198" x2="229.4" y2="210"/><line x1="247.1" y1="198" x2="247.1" y2="210"/><line x1="273.8" y1="198" x2="273.8" y2="210"/><line x1="294.5" y1="198" x2="294.5" y2="210"/><line x1="315.2" y1="198" x2="315.2" y2="210"/><line x1="333" y1="198" x2="333" y2="210"/><line x1="356.6" y1="198" x2="356.6" y2="210"/><line x1="374.4" y1="198" x2="374.4" y2="210"/><line x1="389.2" y1="198" x2="389.2" y2="210"/><line x1="404" y1="198" x2="404" y2="210"/></g>
+                                                </g>
+                                            </svg>
+                                            <figcaption>Reconstructed maternal inheritance: which of the mother's two homologs each
+                                                offspring carries along a linkage group (simplified).</figcaption>
+                                        </figure>
+                                        <details class="more">
+                                            <summary>Example output: one linkage group</summary>
+                                            <div class="more-body">
+                                                <figure class="method-figure">
+                                                    <a class="zoom" href="images/fig_lg01_inference_composite_hybrid.pdf"
+                                                        data-zoom="images/halfsibmap-lg01-example.webp">
+                                                        <picture>
+                                                            <source type="image/webp"
+                                                                srcset="images/halfsibmap-lg01-example-1120.webp 1120w, images/halfsibmap-lg01-example.webp 2240w"
+                                                                sizes="(min-width: 36rem) 31rem, 92vw">
+                                                            <img src="images/halfsibmap-lg01-example.png" width="2240" height="2014"
+                                                                loading="lazy" decoding="async"
+                                                                alt="HalfSibMap output showing a recombination heatmap, reconstructed maternal inheritance, and paternal-process summaries along a linkage group.">
+                                                        </picture>
+                                                        <span class="visually-hidden">(enlarge figure)</span>
+                                                    </a>
+                                                    <figcaption>Example HalfSibMap output showing linkage mapping,
+                                                        reconstructed maternal inheritance, and paternal-process
+                                                        diagnostics.</figcaption>
+                                                </figure>
+                                                <p class="figure-links">
+                                                    <a href="images/fig_lg01_inference_composite_hybrid.pdf">View
+                                                        full-size figure (PDF)</a>
+                                                </p>
+                                            </div>
+                                        </details>
+                                    </div>
+                                </article>
+
+                                <article class="project">
+                                    <header class="project-head">
+                                        <p class="kicker">Genomics · Sweetpotato</p>
+                                        <h3>Inheritance and genome architecture of hexaploid sweetpotato</h3>
+                                    </header>
+                                    <div class="project-body">
+                                        <dl class="pac">
+                                            <div>
+                                                <dt>Problem</dt>
+                                                <dd>Hexaploid sweetpotato has six sets of chromosomes (2n&nbsp;=&nbsp;6x&nbsp;=&nbsp;90), making inheritance analysis more complex. Because of this, genetic studies in sweetpotato lagged well behind those in major diploid crops.</dd>
+                                            </div>
+                                            <div class="pac-approach">
+                                                <dt>Approach</dt>
+                                                <dd id="approach-3">Ultra-dense multilocus mapping in a full-sib population from the cross Beauregard × Tanzania, using MAPpoly and more than 30,000 informative SNPs. Genotype probabilities were computed across the genome for every individual, and the complete hexaploid haplotypes of the offspring were inferred.</dd>
+                                            </div>
+                                            <div>
+                                                <dt>Contribution</dt>
+                                                <dd>An ultra-dense integrated genetic map with 96.5% collinearity with the diploid relative <em>Ipomoea trifida</em>. Inheritance was hexasomic in all linkage groups, apart from low levels of preferential pairing in linkage group 2; 73.3% of meiotic configurations were resolved as bivalents and 15.7% showed multivalent signatures. Related work includes a chapter on genetic maps in sweetpotato and, as a co-author, a phased chromosome-level genome assembly.</dd>
+                                            </div>
+                                        </dl>
+                                        <p class="links">
+                                            <a href="https://doi.org/10.1534/g3.119.400620">Inheritance (G3, 2020)</a>
+                                            <a href="https://doi.org/10.1038/s41477-025-02079-6">Genome assembly (Nature Plants, 2025)</a>
+                                            <a href="https://doi.org/10.1007/978-3-031-65003-1_5">Genetic maps in sweetpotato (2025)</a>
+                                        </p>
+                                        <figure class="project-figure schem-figure">
+                                            <svg class="schem schem-hx" viewBox="0 0 420 206" role="img" aria-labelledby="hx-title hx-desc">
+                                                <title id="hx-title">Haplotype reconstruction in one hexaploid offspring</title>
+                                                <desc id="hx-desc">Each parent, Beauregard and Tanzania, has six homologs, drawn as six coloured bars. The offspring has six homologs, three inherited from each parent. One is a whole parental homolog; the other five are built from segments of two or three homologs of the same parent, joined at crossovers.</desc>
+                                                <g class="hx-parent" data-parent="Beauregard">
+                                                    <text x="0" y="33.5">Beauregard</text>
+                                                    <rect class="hx hx-a" data-hom="a" x="108" y="8" width="296" height="5"/>
+                                                    <rect class="hx hx-b" data-hom="b" x="108" y="15" width="296" height="5"/>
+                                                    <rect class="hx hx-c" data-hom="c" x="108" y="22" width="296" height="5"/>
+                                                    <rect class="hx hx-d" data-hom="d" x="108" y="29" width="296" height="5"/>
+                                                    <rect class="hx hx-e" data-hom="e" x="108" y="36" width="296" height="5"/>
+                                                    <rect class="hx hx-f" data-hom="f" x="108" y="43" width="296" height="5"/>
+                                                </g>
+                                                <g class="hx-parent" data-parent="Tanzania">
+                                                    <text x="0" y="85.5">Tanzania</text>
+                                                    <rect class="hx hx-g" data-hom="g" x="108" y="60" width="296" height="5"/>
+                                                    <rect class="hx hx-h" data-hom="h" x="108" y="67" width="296" height="5"/>
+                                                    <rect class="hx hx-i" data-hom="i" x="108" y="74" width="296" height="5"/>
+                                                    <rect class="hx hx-j" data-hom="j" x="108" y="81" width="296" height="5"/>
+                                                    <rect class="hx hx-k" data-hom="k" x="108" y="88" width="296" height="5"/>
+                                                    <rect class="hx hx-l" data-hom="l" x="108" y="95" width="296" height="5"/>
+                                                </g>
+                                                <path class="schem-arrow" d="M248.8 108 h14.4 v9.6 h7.2 l-14.4 12.8 l-14.4 -12.8 h7.2 z"/>
+                                                <g class="hx-offspring">
+                                                    <text x="0" y="174.5">Offspring</text>
+                                                    <g class="hx-row" data-y="140" data-parent="Beauregard" data-cross="240.8"><rect class="hx-slot" x="108" y="140" width="296" height="7"/><rect class="hx hx-seg hx-e" data-hom="e" x="108" y="140" width="132.8" height="7"/><rect class="hx hx-seg hx-c" data-hom="c" x="240.8" y="140" width="163.2" height="7"/></g>
+                                                    <g class="hx-row" data-y="149.5" data-parent="Beauregard" data-cross="285.1"><rect class="hx-slot" x="108" y="149.5" width="296" height="7"/><rect class="hx hx-seg hx-a" data-hom="a" x="108" y="149.5" width="177.1" height="7"/><rect class="hx hx-seg hx-b" data-hom="b" x="285.1" y="149.5" width="118.9" height="7"/></g>
+                                                    <g class="hx-row" data-y="159" data-parent="Beauregard"><rect class="hx-slot" x="108" y="159" width="296" height="7"/><rect class="hx hx-seg hx-f" data-hom="f" x="108" y="159" width="296" height="7"/></g>
+                                                    <g class="hx-row" data-y="172.5" data-parent="Tanzania" data-cross="162.9"><rect class="hx-slot" x="108" y="172.5" width="296" height="7"/><rect class="hx hx-seg hx-h" data-hom="h" x="108" y="172.5" width="54.9" height="7"/><rect class="hx hx-seg hx-j" data-hom="j" x="162.9" y="172.5" width="241.1" height="7"/></g>
+                                                    <g class="hx-row" data-y="182" data-parent="Tanzania" data-cross="137.2,257.5"><rect class="hx-slot" x="108" y="182" width="296" height="7"/><rect class="hx hx-seg hx-k" data-hom="k" x="108" y="182" width="29.2" height="7"/><rect class="hx hx-seg hx-g" data-hom="g" x="137.2" y="182" width="120.3" height="7"/><rect class="hx hx-seg hx-l" data-hom="l" x="257.5" y="182" width="146.5" height="7"/></g>
+                                                    <g class="hx-row" data-y="191.5" data-parent="Tanzania" data-cross="169.3,275.9"><rect class="hx-slot" x="108" y="191.5" width="296" height="7"/><rect class="hx hx-seg hx-l" data-hom="l" x="108" y="191.5" width="61.3" height="7"/><rect class="hx hx-seg hx-i" data-hom="i" x="169.3" y="191.5" width="106.6" height="7"/><rect class="hx hx-seg hx-h" data-hom="h" x="275.9" y="191.5" width="128.1" height="7"/></g>
+                                                </g>
+                                            </svg>
+                                            <figcaption>One offspring of the Beauregard × Tanzania cross. It carries three homologs from each
+                                                hexaploid parent, most of them rebuilt from segments of that parent's six homologs
+                                                (simplified).</figcaption>
+                                        </figure>
+                                        <details class="more">
+                                            <summary>Full example: homolog probabilities for this offspring</summary>
+                                            <div class="more-body">
+                                                <figure>
+                                                    <a class="zoom" href="images/sweetpotato-bt05-320.png">
+                                                        <img src="images/sweetpotato-bt05-320.png" width="2180" height="868" loading="lazy" decoding="async"
+                                                            alt="Original figure: probability profiles along about 300 centimorgans for the six Beauregard homologs, a to f, and the six Tanzania homologs, g to l, with arrows at the recombination points; beside them, the resulting gametes and the six reconstructed homologs of individual BT05.320.">
+                                                        <span class="visually-hidden">(enlarge figure)</span>
+                                                    </a>
+                                                    <figcaption>Probability profiles of the 12 parental homologs for offspring BT05.320, linkage
+                                                        group 1, with the resulting gametes and the reconstructed haplotype. Part of Figure 3
+                                                        in the 2020 G3 paper.</figcaption>
+                                                </figure>
+                                            </div>
+                                        </details>
+                                    </div>
+                                </article>
+
+                                <article class="project">
+                                    <header class="project-head">
+                                        <p class="kicker">Visualization</p>
+                                        <h3>Exploring polyploid genetic analyses in one place</h3>
+                                        <p class="role-note">Conceptual lead of VIEWpoly.</p>
+                                    </header>
+                                    <div class="project-body">
+                                        <dl class="pac">
+                                            <div>
+                                                <dt>Problem</dt>
+                                                <dd>Results from linkage, QTL, and genome analyses in polyploids often sit in separate tools.</dd>
+                                            </div>
+                                            <div class="pac-approach">
+                                                <dt>Approach</dt>
+                                                <dd id="approach-4">VIEWpoly is an interactive application that brings them together, so users can explore candidate genes in a genome browser. It reads output from MAPpoly, polymapR, diaQTL, QTLpoly, and polyqtlR.</dd>
+                                            </div>
+                                            <div>
+                                                <dt>Contribution</dt>
+                                                <dd>One place to explore linkage, QTL, and genomic results from five polyploid analysis packages, published in the <em>Journal of Open Source Software</em> (2022) and distributed on CRAN.</dd>
+                                            </div>
+                                        </dl>
+                                        <p class="links">
+                                            <a href="https://doi.org/10.21105/joss.04242">VIEWpoly paper (JOSS, 2022)</a>
+                                            <a href="https://www.youtube.com/watch?v=OBt_jebhfeY">Video tutorial</a>
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Software -->
+                <section id="software" class="section" aria-labelledby="software-title">
+                    <span id="ggspoly-content" class="anchor-alias" aria-hidden="true"></span>
+                    <span id="simpoly-content" class="anchor-alias" aria-hidden="true"></span>
+                    <div class="wrap">
+                        <header class="section-head">
+                            <h2 id="software-title">Scientific software</h2>
+                            <p>Open-source R packages I develop, maintain, and contribute to.</p>
+                        </header>
+
+                        <ul class="software-list">
+                            <li class="sw-combined">
+                                <div class="sw-head">
+                                    <h3>MAPpoly &amp; MAPpoly2</h3>
+                                    <span class="tag">Creator and lead developer</span>
+                                </div>
+                                <div class="sw-tools">
+                                    <div class="sw-tool" id="mappoly-content">
+                                        <h4>MAPpoly</h4>
+                                        <p>Linkage analysis and haplotype phasing within diploid and autopolyploid families.</p>
+                                        <p class="links">
+                                            <a href="https://CRAN.R-project.org/package=mappoly">MAPpoly on CRAN</a>
+                                            <a href="https://github.com/mmollina/MAPpoly">MAPpoly on GitHub</a>
+                                            <a href="https://academic.oup.com/g3journal/article-abstract/9/10/3297/6026667">Method (G3, 2019)</a>
+                                            <a href="https://academic.oup.com/g3journal/article/10/1/281/6020289">Method (G3, 2020)</a>
+                                        </p>
+                                    </div>
+                                    <div class="sw-tool" id="mappoly2-content">
+                                        <h4>MAPpoly2</h4>
+                                        <p>Integrated linkage maps across interconnected diploid and autopolyploid families.</p>
+                                        <p class="links">
+                                            <a href="https://github.com/mmollina/mappoly2">MAPpoly2 on GitHub</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="onemap-content">
+                                <div class="sw-head">
+                                    <h3>OneMap</h3>
+                                    <span class="tag">Co-creator</span>
+                                </div>
+                                <div class="sw-body">
+                                    <p>Linkage maps in experimental crosses: full-sib, RIL, F2, and backcross.</p>
+                                    <p class="links">
+                                        <a href="https://CRAN.R-project.org/package=onemap">Current release on CRAN</a>
+                                        <a href="https://github.com/Cristianetaniguti/onemap">Development version</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li id="viewpoly-content">
+                                <div class="sw-head">
+                                    <h3>VIEWpoly</h3>
+                                    <span class="tag">Conceptual lead</span>
+                                </div>
+                                <div class="sw-body">
+                                    <p>Interactive exploration of linkage, QTL, and genomic results in polyploids.</p>
+                                    <p class="links">
+                                        <a href="https://CRAN.R-project.org/package=viewpoly">CRAN</a>
+                                        <a href="https://github.com/Breeding-Insight/viewpoly">GitHub</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li id="halfsibmap">
+                                <div class="sw-head">
+                                    <h3>HalfSibMap</h3>
+                                    <span class="tag">Creator and lead developer</span>
+                                </div>
+                                <div class="sw-body">
+                                    <p>Maternal linkage maps in diploid open-pollinated families with unobserved fathers.</p>
+                                    <p class="links">
+                                        <a href="https://github.com/mmollina/HalfSibMap">GitHub</a>
+                                        <span class="meta">Manuscript in preparation</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li id="qtlpoly-content">
+                                <div class="sw-head">
+                                    <h3>QTLpoly</h3>
+                                    <span class="tag tag-quiet">Contributor</span>
+                                </div>
+                                <div class="sw-body">
+                                    <p>Random-effect multiple QTL mapping in autopolyploid full-sib families.</p>
+                                    <p class="links">
+                                        <a href="https://github.com/guilherme-pereira/QTLpoly">GitHub</a>
+                                        <a href="https://doi.org/10.1534/genetics.120.303080">Method (Genetics, 2020)</a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Publications -->
+                <section id="publications" class="section" aria-labelledby="publications-title">
+                    <div class="wrap">
+                        <header class="section-head">
+                            <h2 id="publications-title">Selected publications</h2>
+                        </header>
+                        <ol class="pubs" id="publications-list" reversed>
+                            <li>
+                                <span class="pub-year" aria-hidden="true">2026</span>
+                                <div class="pub-cite">
+                                    Crowley J, Bjelland D, Hely F, Valente T, <strong>Mollinari M</strong>. (2026).
+                                    <a href="https://www.csastandards.org/research/agricultural-genomics-data-assessing-the-opportunity-for-data-standards">Agricultural genomics data: assessing the opportunity for data standards.</a>
+                                    Canadian Standards Association, Toronto, ON.
+                                </div>
+                            </li>
+                            <li>
+                                <span class="pub-year" aria-hidden="true">2025</span>
+                                <div class="pub-cite">
+                                    Wu S, Sun H, Zhao X, Hamilton JP, <strong>Mollinari M</strong>, Gesteira GDS, Kitavi M,
+                                    Yan M, Wang H, Yang J, Yencho GC, Buell CR, Fei Z. (2025). Phased chromosome-level
+                                    assembly provides insight into the genome architecture of hexaploid sweetpotato.
+                                    <em>Nature Plants</em>, 11, 1951–1959.
+                                    <a href="https://doi.org/10.1038/s41477-025-02079-6">doi:10.1038/s41477-025-02079-6</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="pub-year" aria-hidden="true">2025</span>
+                                <div class="pub-cite">
+                                    Gesteira GS, Pereira GS, Zeng ZB, <strong>Mollinari M</strong>. (2025). Genetic maps in
+                                    sweetpotato. In <em>The Sweetpotato Genome</em> (pp. 45–68). Springer.
+                                    <a href="https://doi.org/10.1007/978-3-031-65003-1_5">doi:10.1007/978-3-031-65003-1_5</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="pub-year" aria-hidden="true">2022</span>
+                                <div class="pub-cite">
+                                    Taniguti CH, Gesteira GS, Lau J, Pereira GS, Zeng ZB, Byrne D, Riera-Lizarazu O,
+                                    <strong>Mollinari M</strong>. (2022). VIEWpoly: a visualization tool to integrate and
+                                    explore results of polyploid genetic analysis. <em>Journal of Open Source Software</em>,
+                                    7(74), 4242.
+                                    <a href="https://doi.org/10.21105/joss.04242">doi:10.21105/joss.04242</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="pub-year" aria-hidden="true">2020</span>
+                                <div class="pub-cite">
+                                    Pereira GS, Gemenet DC, <strong>Mollinari M</strong>, Olukolu BA, Wood JC, Diaz F,
+                                    Mosquera V, Gruneberg WJ, Khan A, Buell CR, Yencho GC, Zeng ZB. (2020). Multiple QTL
+                                    mapping in autopolyploids: a random-effect model approach with application in a
+                                    hexaploid sweetpotato full-sib population. <em>Genetics</em>, 215(3), 579–595.
+                                    <a href="https://doi.org/10.1534/genetics.120.303080">doi:10.1534/genetics.120.303080</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="pub-year" aria-hidden="true">2020</span>
+                                <div class="pub-cite">
+                                    <strong>Mollinari M</strong>, Olukolu BA, Pereira GS, Khan A, Gemenet D, Yencho GC,
+                                    Zeng ZB. (2020). Unraveling the hexaploid sweetpotato inheritance using ultra-dense
+                                    multilocus mapping. <em>G3: Genes, Genomes, Genetics</em>, 10(1), 281–292.
+                                    <a href="https://doi.org/10.1534/g3.119.400620">doi:10.1534/g3.119.400620</a>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="pub-year" aria-hidden="true">2019</span>
+                                <div class="pub-cite">
+                                    <strong>Mollinari M</strong>, Garcia AAF. (2019). Linkage analysis and haplotype phasing
+                                    in experimental autopolyploid populations with high ploidy level using hidden Markov
+                                    models. <em>G3: Genes, Genomes, Genetics</em>, 9(10), 3297–3314.
+                                    <a href="https://doi.org/10.1534/g3.119.400378">doi:10.1534/g3.119.400378</a>
+                                </div>
+                            </li>
+                        </ol>
+                        <p class="more-link">
+                            <a href="https://scholar.google.com/citations?user=oUaRf4oAAAAJ&amp;hl=en">Full publication
+                                list on Google Scholar</a>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- About / Experience -->
+                <section id="about" class="section" aria-labelledby="about-title">
+                    <div class="wrap">
+                        <header class="section-head">
+                            <h2 id="about-title">About</h2>
+                        </header>
+                        <div class="about-grid">
+                            <div class="about-bio">
+                                <p>I am a quantitative geneticist trained in plant genetics and breeding. My doctoral
+                                    work at the University of São Paulo developed models for building genetic maps in
+                                    autopolyploids, with applications in sugarcane. Since then I have focused on
+                                    algorithms for genomic analysis in complex family structures, especially outcrossing
+                                    diploid and polyploid crops.</p>
+                                <p>At North Carolina State University I led research on statistical methods and
+                                    computational algorithms for diploid and polyploid populations, created MAPpoly and
+                                    MAPpoly2, and worked with research groups and breeding programs in sweetpotato,
+                                    potato, blackberry, forage crops, and other species, combining statistical models
+                                    with R and C++ software.</p>
+                                <p>Since October 2025 I have worked at AbacusBio on quantitative genetics and biometrics
+                                    for commercial breeding programs across horticultural crops, forest trees, and
+                                    livestock, developing reproducible workflows and working with breeding teams to
+                                    interpret results.</p>
+                                <h3 class="sub">Areas of focus</h3>
+                                <ul class="tags-inline">
+                                    <li>Statistical &amp; quantitative genetics</li>
+                                    <li>Genomic prediction &amp; mixed models</li>
+                                    <li>Linkage analysis &amp; haplotype phasing</li>
+                                    <li>QTL mapping</li>
+                                    <li>Polyploid genetics</li>
+                                    <li>R &amp; C++ package development</li>
+                                </ul>
+                                <h3 class="sub">Research leadership and service</h3>
+                                <ul class="plain">
+                                    <li>At NC State, project director on some externally funded research projects and
+                                        co-investigator on others, with support from USDA-NIFA, USDA-SCRI, CGIAR, and
+                                        other organizations. Across these projects I coordinated methodological
+                                        development, software implementation, and scientific collaborations.</li>
+                                    <li>Graduate student advisor and committee member at NC State, and mentor to
+                                        graduate students and researchers.</li>
+                                    <li>Peer reviewer for <em>Genetics</em>, <em>G3</em>, <em>Nature Communications</em>,
+                                        <em>Bioinformatics</em>, and other scientific journals.</li>
+                                    <li>Member, National Association for Plant Breeding (NAPB).</li>
+                                </ul>
+                            </div>
+                            <div class="about-cv">
+                                <h3 class="sub" id="experience">Experience</h3>
+                                <ol class="timeline">
+                                    <li>
+                                        <p class="t-role">Quantitative Geneticist / Consultant</p>
+                                        <p class="t-org">AbacusBio · October 2025–present</p>
+                                    </li>
+                                    <li>
+                                        <p class="t-role">Research Assistant Professor</p>
+                                        <p class="t-org">Bioinformatics Research Center &amp; Department of Horticultural
+                                            Science, North Carolina State University · 2021–October 2025</p>
+                                        <p class="t-note">Earlier at NC State: Senior Research Assistant (2018–2021) and
+                                            Postdoctoral Fellow (2016–2017)</p>
+                                    </li>
+                                    <li>
+                                        <p class="t-role">Postdoctoral Fellow</p>
+                                        <p class="t-org">Department of Genetics, ESALQ, University of São Paulo · 2012–2015</p>
+                                        <p class="t-note">Visiting Scholar, Department of Statistics, Purdue University (2014–2015)</p>
+                                    </li>
+                                    <li>
+                                        <p class="t-role">Research Intern, eScience Group</p>
+                                        <p class="t-org">Microsoft Research · 2010</p>
+                                    </li>
+                                </ol>
+                                <h3 class="sub">Education</h3>
+                                <ul class="plain">
+                                    <li>PhD, Plant Genetics and Breeding, ESALQ, University of São Paulo (2012)</li>
+                                    <li>MSc, Plant Genetics and Breeding, ESALQ, University of São Paulo (2008)</li>
+                                    <li>BSc, Agronomic Engineering, ESALQ, University of São Paulo (2005)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Secondary resources -->
+                <section id="teaching" class="section" aria-labelledby="resources-title">
+                    <div class="wrap">
+                        <header class="section-head">
+                            <h2 id="resources-title">Talks, workshops &amp; resources</h2>
+                            <p>Slides from talks, workshops, and lectures (PDF).</p>
+                        </header>
+                        <ul class="resource-list">
+                            <li><a href="doc/Updates-Introducing_MAPpoly2-and_updates_QTLpoly-2024-workshop.pdf">Introducing
+                                    MAPpoly2 and updates to QTLpoly</a> <span class="meta">2024 workshop · 3.0 MB</span></li>
+                            <li><a href="doc/Introduction_to_MAPpoly.pdf">Introduction to MAPpoly</a> <span class="meta">Training
+                                    session · 5.5 MB</span></li>
+                            <li><a href="doc/BI_Cornell_Workshop.pdf">Theoretical and practical aspects of linkage
+                                    analysis</a> <span class="meta">Breeding Insight workshop, Cornell · 17.7 MB</span></li>
+                            <li><a href="doc/Merging_maps_from_multiple_populations.pdf">Merging maps from multiple
+                                    populations</a> <span class="meta">Talk · 6.0 MB</span></li>
+                            <li><a href="doc/Genomic_Challenges_in_Polyploid_Crops.pdf">Genomic challenges in polyploid
+                                    crops</a> <span class="meta">Talk · 5.0 MB</span></li>
+                            <li><a href="doc/Universidade_Federal_de_Goias_Polyploid_Genetics_Lecture.pdf">Genetic mapping
+                                    in polyploids: from genotyping to haplotype reconstruction</a> <span
+                                    class="meta">Lecture, Universidade Federal de Goiás · 13.3 MB</span></li>
+                            <li><a href="doc/HS_703_Importance_of_polyploidy_inheritance_patterns_and_manipulation.pdf">Polyploidy:
+                                    importance, inheritance patterns, and manipulation</a> <span class="meta">HS 703
+                                    lecture · 5.4 MB</span></li>
+                            <li><a href="doc/The_Sweetpotato_Genome.pdf">The sweetpotato genome</a> <span class="meta">Talk ·
+                                    6.5 MB</span></li>
+                        </ul>
+
+                        <h3 class="sub" id="misc-scripts">Scripts and guides</h3>
+                        <ul class="resource-list">
+                            <li><a href="https://github.com/mmollina/Cpp_and_R">Integrating C++ with R using Rcpp</a>
+                                <span class="meta">An older but still useful guide with examples and performance comparisons</span></li>
+                            <li><a href="https://github.com/mmollina/MAPpoly_vignettes/tree/master/misc_scripts">Miscellaneous
+                                    analysis scripts</a> <span class="meta">GitHub</span></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Contact -->
+                <section id="contact" class="section contact" aria-labelledby="contact-title">
+                    <div class="wrap">
+                        <div class="contact-panel">
+                            <h2 id="contact-title">Contact</h2>
+                            <p class="contact-lede">I welcome conversations about quantitative genetics, plant breeding,
+                                and breeding analytics, whether you work in a breeding program or company, are a
+                                researcher interested in collaborating, or use one of my software packages.</p>
+                            <dl class="contact-list">
+                                <div class="contact-email">
+                                    <dt>Email</dt>
+                                    <dd>
+                                        <a href="mailto:marcelo@marcelomollinari.com">marcelo@<wbr>marcelomollinari.com</a>
+                                        <button class="copy-btn" type="button" hidden
+                                            data-copy="marcelo@marcelomollinari.com">Copy</button>
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>LinkedIn</dt>
+                                    <dd><a rel="me" href="https://www.linkedin.com/in/mmollina">linkedin.com/in/mmollina</a></dd>
+                                </div>
+                                <div>
+                                    <dt>GitHub</dt>
+                                    <dd><a rel="me" href="https://github.com/mmollina">github.com/mmollina</a></dd>
+                                </div>
+                                <div>
+                                    <dt>Google Scholar</dt>
+                                    <dd><a rel="me" href="https://scholar.google.com/citations?user=oUaRf4oAAAAJ&amp;hl=en">Scholar profile</a></dd>
+                                </div>
+                            </dl>
+                            <p class="minor">For software questions or bug reports, the issue tracker in each package's
+                                repository is usually the quickest route.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="site-footer">
+                <div class="wrap">
+                    <p>© Marcelo Mollinari</p>
+                    <p><a href="#top">Back to top</a></p>
+                </div>
+            </footer>
         </div>
-    </header>
-
-    <main id="main" tabindex="-1">
-        <!-- Opening -->
-        <section id="top" class="hero" aria-labelledby="hero-title">
-            <div class="wrap hero-grid">
-                <div class="hero-text">
-                    <p class="eyebrow">Quantitative genetics · Plant breeding · Scientific software</p>
-                    <h1 id="hero-title">Marcelo Mollinari, PhD</h1>
-                    <p class="role">
-                        Consultant, Quantitative Genetics &amp; Bioinformatics at
-                        <a href="https://www.abacusbio.com/">AbacusBio</a>
-                    </p>
-                    <p class="lede">
-                        I develop statistical methods for breeding data and build them into tools that breeders and
-                        researchers can use, from genetic mapping and QTL analysis to genomic prediction in diploid and
-                        polyploid crops.
-                    </p>
-                    <p class="previously">Previously Research Assistant Professor, North Carolina State University.</p>
-                    <div class="actions">
-                        <a class="btn btn-primary" href="#work">Selected work</a>
-                        <a class="btn btn-secondary" href="#contact">Get in touch</a>
-                    </div>
-                    <ul class="profile-links" aria-label="Professional profiles">
-                        <li><a href="https://scholar.google.com/citations?user=oUaRf4oAAAAJ&amp;hl=en">Google Scholar</a></li>
-                        <li><a href="https://github.com/mmollina">GitHub</a></li>
-                        <li><a href="https://www.linkedin.com/in/mmollina">LinkedIn</a></li>
-                    </ul>
-                </div>
-                <div class="hero-portrait">
-                    <img src="images/profile.jpg" width="640" height="640" alt="Portrait of Marcelo Mollinari">
-                </div>
-            </div>
-        </section>
-
-        <!-- How the pieces connect -->
-        <section class="approach" aria-labelledby="approach-title">
-            <div class="wrap">
-                <h2 id="approach-title" class="visually-hidden">Approach</h2>
-                <ol class="approach-grid">
-                    <li>
-                        <h3>Statistical methods</h3>
-                        <p>Hidden Markov, random-effect, and mixed models for mapping, QTL, and prediction.</p>
-                    </li>
-                    <li>
-                        <h3>Working with breeders</h3>
-                        <p>Built around real families in outcrossing diploid and polyploid crops.</p>
-                    </li>
-                    <li>
-                        <h3>Usable tools</h3>
-                        <p>Open R and C++ packages that support reproducible analyses.</p>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- Selected work -->
-        <section id="work" class="section" aria-labelledby="work-title">
-            <span id="engagements" class="anchor-alias" aria-hidden="true"></span>
-            <span id="research" class="anchor-alias" aria-hidden="true"></span>
-            <div class="wrap">
-                <header class="section-head">
-                    <h2 id="work-title">Selected work</h2>
-                    <p>Public research and software projects, from statistical models to the tools that put them to use.</p>
-                </header>
-
-                <div class="work-grid">
-                <article class="project project-featured">
-                    <div class="project-text">
-                        <p class="kicker">Genetic mapping · Polyploids</p>
-                        <h3>Multi-family linkage maps in polyploids</h3>
-                        <p>Breeding programs often work with several related crosses. MAPpoly2 combines information
-                            across interconnected diploid and autopolyploid families to build integrated linkage maps.
-                            It extends the single-family models in MAPpoly.</p>
-                        <p class="links">
-                            <a href="https://github.com/mmollina/mappoly2">MAPpoly2 on GitHub</a>
-                            <a href="https://doi.org/10.1534/g3.119.400378">MAPpoly method (G3, 2019)</a>
-                        </p>
-                        <p class="role-note">Creator of MAPpoly and MAPpoly2.</p>
-                    </div>
-                    <div class="project-media">
-                        <figure class="project-figure">
-                            <img class="schematic" src="images/map-integration-schematic.svg" width="840" height="356"
-                                alt="Schematic: three populations each have markers mapped separately at partly different positions; an arrow leads to one consensus map containing the markers from all three.">
-                            <figcaption>Maps from separate populations combined into one consensus map
-                                (simplified).</figcaption>
-                        </figure>
-                        <details class="more">
-                            <summary>How MAPpoly2 builds the map</summary>
-                            <div class="more-body">
-                                <p>A hidden Markov model builds a map for each parent. These are combined into a joint
-                                    map, which is then recomputed to place the remaining markers. Ploidy levels 2, 4,
-                                    and 6 can be combined in any configuration, and the computationally intensive steps
-                                    are written in C++.</p>
-                                <figure>
-                                    <img src="images/hmm.png" width="2438" height="956" loading="lazy"
-                                        alt="Original figure: markers mapped separately in three populations are linked through a hidden Markov model into a single consensus map, with the full caption below the diagram.">
-                                    <figcaption>Original figure with its full caption.</figcaption>
-                                </figure>
-                            </div>
-                        </details>
-                        <details class="more">
-                            <summary>Example output: a potato consensus map</summary>
-                            <div class="more-body">
-                                <figure>
-                                    <img src="images/mappoly2.png" width="2438" height="1064" loading="lazy"
-                                        alt="MAPpoly2 output for a multiparental potato population: a population summary table, per-family and consensus maps for 12 chromosomes, and the final consensus linkage map.">
-                                </figure>
-                            </div>
-                        </details>
-                    </div>
-                </article>
-
-                <article class="project project-wide" id="halfsibmap-work">
-                    <div class="project-text">
-                        <p class="kicker">Recent methods development</p>
-                        <h3>Maternal maps from open-pollinated families</h3>
-                        <p>In open-pollinated families the mother is known and genotyped, but the fathers are not
-                            observed. HalfSibMap is an R package that builds maternal linkage maps and reconstructs
-                            each offspring's maternal inheritance in diploid open-pollinated families, using the
-                            offspring genotypes and the genotyped mother.</p>
-                    </div>
-                    <dl class="facts">
-                        <div>
-                            <dt>Role</dt>
-                            <dd>Author and maintainer, with co-authors Kim McKeever, Molly Irvin, and Fikret Isik.</dd>
-                        </div>
-                        <div>
-                            <dt>Status</dt>
-                            <dd>Available from GitHub; a methodological manuscript is in preparation.</dd>
-                        </div>
-                        <div>
-                            <dt>Code</dt>
-                            <dd><a href="https://github.com/mmollina/HalfSibMap">HalfSibMap on GitHub</a></dd>
-                        </div>
-                    </dl>
-                    <details class="more">
-                        <summary>Method details</summary>
-                        <div class="more-body">
-                            <p>A source-aware hidden Markov model pairs the transmitted maternal homolog with a
-                                paternal source state. Persistent paternal haplotype-sharing tracts, as arise when some
-                                pollen parents are related to the mother, are then modelled explicitly rather than
-                                absorbed into the maternal recombination map. These states describe shared tracts
-                                statistically; they do not identify fathers. Intervals without linkage are reported as
-                                gaps rather than as large distances.</p>
-                            <figure class="method-figure">
-                                <a class="figure-link" href="images/fig_lg01_inference_composite_hybrid.pdf">
-                                    <img src="images/halfsibmap-lg01-example.png" width="2240" height="2014"
-                                        loading="lazy" decoding="async"
-                                        alt="HalfSibMap output showing a recombination heatmap, reconstructed maternal inheritance, and paternal-process summaries along a linkage group.">
-                                    <span class="visually-hidden">(opens full-size figure, PDF)</span>
-                                </a>
-                                <figcaption>Example HalfSibMap output showing linkage mapping, reconstructed maternal
-                                    inheritance, and paternal-process diagnostics.</figcaption>
-                                <p class="figure-links">
-                                    <a href="images/fig_lg01_inference_composite_hybrid.pdf">View full-size figure
-                                        (PDF)</a>
-                                </p>
-                            </figure>
-                        </div>
-                    </details>
-                </article>
-
-                <article class="project">
-                    <div class="project-text">
-                        <p class="kicker">Genomics · Sweetpotato</p>
-                        <h3>Inheritance and genome architecture of hexaploid sweetpotato</h3>
-                        <p>Hexaploid sweetpotato has six sets of chromosomes, making inheritance analysis more
-                            complex. Ultra-dense multilocus mapping in a full-sib population helped clarify it. Related
-                            work includes a chapter on genetic maps in sweetpotato and, as a co-author, a phased
-                            chromosome-level genome assembly.</p>
-                        <p class="links">
-                            <a href="https://doi.org/10.1534/g3.119.400620">Inheritance (G3, 2020)</a>
-                            <a href="https://doi.org/10.1038/s41477-025-02079-6">Genome assembly (Nature Plants, 2025)</a>
-                            <a href="https://doi.org/10.1007/978-3-031-65003-1_5">Genetic maps in sweetpotato (2024)</a>
-                        </p>
-                    </div>
-                </article>
-
-                <article class="project">
-                    <div class="project-text">
-                        <p class="kicker">Visualization</p>
-                        <h3>Exploring polyploid genetic analyses in one place</h3>
-                        <p>Results from linkage, QTL, and genome analyses often sit in separate tools. VIEWpoly is an
-                            interactive application that brings them together, so users can explore candidate genes in a
-                            genome browser. It reads output from MAPpoly, polymapR, diaQTL, QTLpoly, and polyqtlR.</p>
-                        <p class="links">
-                            <a href="https://doi.org/10.21105/joss.04242">VIEWpoly paper (JOSS, 2022)</a>
-                            <a href="https://www.youtube.com/watch?v=OBt_jebhfeY">Video tutorial</a>
-                        </p>
-                        <p class="role-note">Conceptual lead of VIEWpoly.</p>
-                    </div>
-                </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Software -->
-        <section id="software" class="section section-alt" aria-labelledby="software-title">
-            <span id="ggspoly-content" class="anchor-alias" aria-hidden="true"></span>
-            <span id="simpoly-content" class="anchor-alias" aria-hidden="true"></span>
-            <div class="wrap">
-                <header class="section-head">
-                    <h2 id="software-title">Software</h2>
-                    <p>Open-source R packages I develop, maintain, and contribute to.</p>
-                </header>
-
-                <ul class="software-list">
-                    <li class="sw-combined">
-                        <div class="sw-head">
-                            <h3>MAPpoly &amp; MAPpoly2</h3>
-                            <span class="tag">Creator</span>
-                        </div>
-                        <div class="sw-tools">
-                            <div class="sw-tool" id="mappoly-content">
-                                <h4>MAPpoly</h4>
-                                <p>Linkage analysis and haplotype phasing within diploid and autopolyploid families.</p>
-                                <p class="links">
-                                    <a href="https://CRAN.R-project.org/package=mappoly">MAPpoly on CRAN</a>
-                                    <a href="https://github.com/mmollina/MAPpoly">MAPpoly on GitHub</a>
-                                </p>
-                            </div>
-                            <div class="sw-tool" id="mappoly2-content">
-                                <h4>MAPpoly2</h4>
-                                <p>Integrated linkage maps across interconnected diploid and autopolyploid families.</p>
-                                <p class="links">
-                                    <a href="https://github.com/mmollina/mappoly2">MAPpoly2 on GitHub</a>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                    <li id="onemap-content">
-                        <div class="sw-head">
-                            <h3>OneMap</h3>
-                            <span class="tag">Co-creator</span>
-                        </div>
-                        <p>Linkage maps in experimental crosses: full-sib, RIL, F2, and backcross.</p>
-                        <p class="links">
-                            <a href="https://CRAN.R-project.org/package=onemap">Current release on CRAN</a>
-                            <a href="https://github.com/Cristianetaniguti/onemap">Development version</a>
-                        </p>
-                    </li>
-                    <li id="viewpoly-content">
-                        <div class="sw-head">
-                            <h3>VIEWpoly</h3>
-                            <span class="tag">Conceptual lead</span>
-                        </div>
-                        <p>Interactive exploration of linkage, QTL, and genomic results in polyploids.</p>
-                        <p class="links">
-                            <a href="https://CRAN.R-project.org/package=viewpoly">CRAN</a>
-                            <a href="https://github.com/Breeding-Insight/viewpoly">GitHub</a>
-                        </p>
-                    </li>
-                    <li id="halfsibmap">
-                        <div class="sw-head">
-                            <h3>HalfSibMap</h3>
-                            <span class="tag">Author &amp; maintainer</span>
-                        </div>
-                        <p>Maternal linkage maps in diploid open-pollinated families with unobserved fathers.</p>
-                        <p class="links">
-                            <a href="https://github.com/mmollina/HalfSibMap">GitHub</a>
-                            <span class="meta">Manuscript in preparation</span>
-                        </p>
-                    </li>
-                    <li id="qtlpoly-content">
-                        <div class="sw-head">
-                            <h3>QTLpoly</h3>
-                            <span class="tag tag-quiet">Contributor</span>
-                        </div>
-                        <p>Random-effect multiple QTL mapping in autopolyploid full-sib families.</p>
-                        <p class="links">
-                            <a href="https://github.com/guilherme-pereira/QTLpoly">GitHub</a>
-                            <a href="https://doi.org/10.1534/genetics.120.303080">Method (Genetics, 2020)</a>
-                        </p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Publications -->
-        <section id="publications" class="section" aria-labelledby="publications-title">
-            <div class="wrap">
-                <header class="section-head">
-                    <h2 id="publications-title">Selected publications</h2>
-                </header>
-                <ol class="pubs" id="publications-list" reversed>
-                    <li>
-                        Crowley J, Bjelland D, Hely F, Valente T, <strong>Mollinari M</strong>. (2026). 
-                        <a href="https://www.csastandards.org/research/agricultural-genomics-data-assessing-the-opportunity-for-data-standards">Agricultural genomics data: assessing the opportunity for data standards.</a>
-                        Canadian Standards Association, Toronto, ON.
-                    </li>
-                    <li>
-                        Wu S, Sun H, Zhao X, Hamilton JP, <strong>Mollinari M</strong>, Gesteira GDS, Kitavi M, Yan M,
-                        Wang H, Yang J, Yencho GC, Buell CR, Fei Z. (2025). Phased chromosome-level assembly provides
-                        insight into the genome architecture of hexaploid sweetpotato. <em>Nature Plants</em>, 11,
-                        1951–1959.
-                        <a href="https://doi.org/10.1038/s41477-025-02079-6">doi:10.1038/s41477-025-02079-6</a>
-                    </li>
-                    <li>
-                        Gesteira GS, Pereira GS, Zeng ZB, <strong>Mollinari M</strong>. (2024). Genetic maps in
-                        sweetpotato. In <em>The Sweetpotato Genome</em> (pp. 45–68). Springer.
-                        <a href="https://doi.org/10.1007/978-3-031-65003-1_5">doi:10.1007/978-3-031-65003-1_5</a>
-                    </li>
-                    <li>
-                        Taniguti CH, Gesteira GS, Lau J, Pereira GS, Zeng ZB, Byrne D, Riera-Lizarazu O,
-                        <strong>Mollinari M</strong>. (2022). VIEWpoly: a visualization tool to integrate and explore
-                        results of polyploid genetic analysis. <em>Journal of Open Source Software</em>, 7(74), 4242.
-                        <a href="https://doi.org/10.21105/joss.04242">doi:10.21105/joss.04242</a>
-                    </li>
-                    <li>
-                        Pereira GS, Gemenet DC, <strong>Mollinari M</strong>, Olukolu BA, Wood JC, Diaz F, Mosquera V,
-                        Gruneberg WJ, Khan A, Buell CR, Yencho GC, Zeng ZB. (2020). Multiple QTL mapping in
-                        autopolyploids: a random-effect model approach with application in a hexaploid sweetpotato
-                        full-sib population. <em>Genetics</em>, 215(3), 579–595.
-                        <a href="https://doi.org/10.1534/genetics.120.303080">doi:10.1534/genetics.120.303080</a>
-                    </li>
-                    <li>
-                        <strong>Mollinari M</strong>, Olukolu BA, Pereira GS, Khan A, Gemenet D, Yencho GC, Zeng ZB.
-                        (2020). Unraveling the hexaploid sweetpotato inheritance using ultra-dense multilocus mapping.
-                        <em>G3: Genes, Genomes, Genetics</em>, 10(1), 281–292.
-                        <a href="https://doi.org/10.1534/g3.119.400620">doi:10.1534/g3.119.400620</a>
-                    </li>
-                    <li>
-                        <strong>Mollinari M</strong>, Garcia AAF. (2019). Linkage analysis and haplotype phasing in
-                        experimental autopolyploid populations with high ploidy level using hidden Markov models.
-                        <em>G3: Genes, Genomes, Genetics</em>, 9(10), 3297–3314.
-                        <a href="https://doi.org/10.1534/g3.119.400378">doi:10.1534/g3.119.400378</a>
-                    </li>
-                </ol>
-                <p class="more-link">
-                    <a href="https://scholar.google.com/citations?user=oUaRf4oAAAAJ&amp;hl=en">Full publication list on
-                        Google Scholar</a>
-                </p>
-            </div>
-        </section>
-
-        <!-- About / Experience -->
-        <section id="about" class="section section-alt" aria-labelledby="about-title">
-            <div class="wrap about-grid">
-                <div>
-                    <h2 id="about-title">About</h2>
-                    <p>I am a quantitative geneticist trained in plant genetics and breeding. My doctoral work at the
-                        University of São Paulo developed models for building genetic maps in autopolyploids, with
-                        applications in sugarcane. Since then I have focused on algorithms for genomic analysis in
-                        complex family structures, especially outcrossing diploid and polyploid crops.</p>
-                    <p>At North Carolina State University I worked with breeders and collaborators across several
-                        species, combining statistical models with R and C++ software.</p>
-                    <p>At AbacusBio, I work on genetic evaluation, genotype data quality, and statistical analysis for
-                        breeding programs, developing reproducible workflows and communicating results to project
-                        teams.</p>
-                    <h3 class="sub">Areas of focus</h3>
-                    <ul class="tags-inline">
-                        <li>Statistical &amp; quantitative genetics</li>
-                        <li>Genomic prediction &amp; mixed models</li>
-                        <li>Linkage analysis &amp; haplotype phasing</li>
-                        <li>QTL mapping</li>
-                        <li>Polyploid genetics</li>
-                        <li>R &amp; C++ package development</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="sub" id="experience">Experience</h3>
-                    <ol class="timeline">
-                        <li>
-                            <p class="t-role">Consultant, Quantitative Genetics &amp; Bioinformatics</p>
-                            <p class="t-org">AbacusBio · October 2025–present</p>
-                        </li>
-                        <li>
-                            <p class="t-role">Research Assistant Professor</p>
-                            <p class="t-org">Bioinformatics Research Center &amp; Department of Horticultural Science,
-                                North Carolina State University · 2021–October 2025</p>
-                            <p class="t-note">Earlier at NC State: Senior Research Assistant (2018–2021) and
-                                Postdoctoral Fellow (2016–2017)</p>
-                        </li>
-                        <li>
-                            <p class="t-role">Postdoctoral Fellow</p>
-                            <p class="t-org">Department of Genetics, ESALQ, University of São Paulo · 2012–2015</p>
-                            <p class="t-note">Visiting Scholar, Department of Statistics, Purdue University (2014–2015)</p>
-                        </li>
-                        <li>
-                            <p class="t-role">Research Intern, eScience Group</p>
-                            <p class="t-org">Microsoft Research · 2010</p>
-                        </li>
-                    </ol>
-                    <h3 class="sub">Education</h3>
-                    <ul class="plain">
-                        <li>PhD, Plant Genetics and Breeding, ESALQ, University of São Paulo (2012)</li>
-                        <li>MSc, Plant Genetics and Breeding, ESALQ, University of São Paulo (2008)</li>
-                        <li>BSc, Agronomic Engineering, ESALQ, University of São Paulo (2005)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Secondary resources -->
-        <section id="teaching" class="section" aria-labelledby="resources-title">
-            <div class="wrap">
-                <header class="section-head">
-                    <h2 id="resources-title">Talks, workshops &amp; resources</h2>
-                    <p>Slides from talks, workshops, and lectures (PDF).</p>
-                </header>
-                <ul class="resource-list">
-                    <li><a href="doc/Updates-Introducing_MAPpoly2-and_updates_QTLpoly-2024-workshop.pdf">Introducing
-                            MAPpoly2 and updates to QTLpoly</a> <span class="meta">2024 workshop · 3.0 MB</span></li>
-                    <li><a href="doc/Introduction_to_MAPpoly.pdf">Introduction to MAPpoly</a> <span class="meta">Training
-                            session · 5.5 MB</span></li>
-                    <li><a href="doc/BI_Cornell_Workshop.pdf">Theoretical and practical aspects of linkage
-                            analysis</a> <span class="meta">Breeding Insight workshop, Cornell · 17.7 MB</span></li>
-                    <li><a href="doc/Merging_maps_from_multiple_populations.pdf">Merging maps from multiple
-                            populations</a> <span class="meta">Talk · 6.0 MB</span></li>
-                    <li><a href="doc/Genomic_Challenges_in_Polyploid_Crops.pdf">Genomic challenges in polyploid
-                            crops</a> <span class="meta">Talk · 5.0 MB</span></li>
-                    <li><a href="doc/Universidade_Federal_de_Goias_Polyploid_Genetics_Lecture.pdf">Genetic mapping in
-                            polyploids: from genotyping to haplotype reconstruction</a> <span class="meta">Lecture,
-                            Universidade Federal de Goiás · 13.3 MB</span></li>
-                    <li><a href="doc/HS_703_Importance_of_polyploidy_inheritance_patterns_and_manipulation.pdf">Polyploidy:
-                            importance, inheritance patterns, and manipulation</a> <span class="meta">HS 703 lecture ·
-                            5.4 MB</span></li>
-                    <li><a href="doc/The_Sweetpotato_Genome.pdf">The sweetpotato genome</a> <span class="meta">Talk ·
-                            6.5 MB</span></li>
-                </ul>
-
-                <h3 class="sub" id="misc-scripts">Scripts and guides</h3>
-                <ul class="resource-list">
-                    <li><a href="https://github.com/mmollina/Cpp_and_R">Integrating C++ with R using Rcpp</a>
-                        <span class="meta">An older but still useful guide with examples and performance comparisons</span></li>
-                    <li><a href="https://github.com/mmollina/MAPpoly_vignettes/tree/master/misc_scripts">Miscellaneous
-                            analysis scripts</a> <span class="meta">GitHub</span></li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="section contact" aria-labelledby="contact-title">
-            <div class="wrap">
-                <h2 id="contact-title">Contact</h2>
-                <p class="contact-lede">I welcome conversations about quantitative genetics, plant breeding, and
-                    breeding analytics, whether you work in a breeding program or company, are a researcher interested
-                    in collaborating, or use one of my software packages.</p>
-                <dl class="contact-list">
-                    <div>
-                        <dt>Email</dt>
-                        <dd><a href="mailto:marcelo@marcelomollinari.com">marcelo@marcelomollinari.com</a></dd>
-                    </div>
-                    <div>
-                        <dt>LinkedIn</dt>
-                        <dd><a href="https://www.linkedin.com/in/mmollina">linkedin.com/in/mmollina</a></dd>
-                    </div>
-                    <div>
-                        <dt>GitHub</dt>
-                        <dd><a href="https://github.com/mmollina">github.com/mmollina</a></dd>
-                    </div>
-                    <div>
-                        <dt>Google Scholar</dt>
-                        <dd><a href="https://scholar.google.com/citations?user=oUaRf4oAAAAJ&amp;hl=en">Scholar profile</a></dd>
-                    </div>
-                </dl>
-                <p class="minor">For software questions or bug reports, the issue tracker in each package's repository
-                    is usually the quickest route.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="wrap">
-            <p>© Marcelo Mollinari</p>
-            <p><a href="#top">Back to top</a></p>
-        </div>
-    </footer>
+    </div>
 </body>
 
 </html>

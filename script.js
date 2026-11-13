@@ -95,8 +95,14 @@ const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
         for (let i = 0; i < tops.length; i++) {
             if (tops[i] <= line + 1) index = i;
         }
-        // A link that is hidden at this width (Talks, on phones) is never marked.
-        const next = index >= 0 && items[index].link.offsetParent ? items[index].link : null;
+        // A link that is hidden at this width is never marked. If its section lies inside the
+        // section of a link that is shown (Explorations, inside Work), that link is marked instead.
+        let next = null;
+        if (index >= 0) {
+            const here = items[index];
+            const shown = (entry) => entry.link.offsetParent !== null;
+            next = shown(here) ? here.link : (items.slice(0, index).reverse().find((entry) => shown(entry) && entry.section.contains(here.section))?.link ?? null);
+        }
         if (next === current) return;
         current?.removeAttribute("aria-current");
         next?.setAttribute("aria-current", "location");

@@ -1240,12 +1240,174 @@ figcaption {
     opacity: 0;
 }
 
+/* Meiotic pairing, read from the crossovers. In each parent a link joins the two homologs
+   that exchanged segments, at the place of the crossover. */
+.schem .hx-link line {
+    stroke: var(--ink);
+    stroke-width: 1.3;
+    stroke-linecap: round;
+}
+
+.schem .hx-link .hx-link-halo {
+    stroke: var(--bg);
+    stroke-width: 3.2;
+}
+
+.schem .hx-link circle {
+    fill: var(--ink);
+    stroke: var(--bg);
+    stroke-width: 0.6;
+}
+
+.schem-hx.has-active .hx-parent.is-on rect,
+.schem-hx.has-active .hx-parent rect.is-on {
+    opacity: 1;
+}
+
+.schem-hx.has-active .hx-link:not(.is-on) {
+    opacity: 0.12;
+}
+
+/* Shown once the offspring has been assembled */
+.schem-hx.is-pending .hx-link,
+.schem-hx.is-building .hx-link {
+    opacity: 0;
+}
+
+/* Views 2 to 5, added by script.js. One strand per parental homolog, drawn beside its
+   partners and then as bivalents and a hexavalent; then the chromosomes each meiosis sent
+   to its gamete, which end as the offspring. Meanwhile the offspring itself is hidden: it
+   comes back when the last view has settled. */
+.schem-hx[data-step="2"] .hx-offspring,
+.schem-hx[data-step="3"] .hx-offspring,
+.schem-hx[data-step="4"] .hx-offspring,
+.schem-hx[data-step="5"]:not(.is-settled) .hx-offspring,
+.schem-hx[data-step="2"] .schem-arrow,
+.schem-hx[data-step="3"] .schem-arrow,
+.schem-hx[data-step="4"] .schem-arrow,
+.schem-hx[data-step="5"]:not(.is-settled) .schem-arrow {
+    opacity: 0;
+}
+
+.schem-hx.is-flat .hx-strands {
+    visibility: hidden;
+}
+
+.schem .hx-strand,
+.schem .hx-strand-edge {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.schem .hx-strand-edge {
+    stroke: var(--bar-edge);
+}
+
+/* A chromosome of a gamete: stretches of parental strands, inside one outline */
+.schem .hx-part,
+.schem .hx-chrom-edge {
+    fill: none;
+    stroke-linejoin: round;
+}
+
+.schem .hx-chrom-edge {
+    stroke: var(--ink);
+}
+
+.schem-hx.is-landed .hx-gametes {
+    visibility: hidden;
+}
+
+.schem-hx.has-active .hx-chrom:not(.is-on) {
+    opacity: 0.2;
+}
+
+/* Where the homologs change partners */
+.schem .hx-zone {
+    fill: var(--ink);
+    fill-opacity: 0.08;
+}
+
+.schem .hx-note {
+    font-size: 14px;
+    text-anchor: middle;
+    opacity: 0;
+}
+
+.schem-hx.is-settled[data-step="2"] .hx-note,
+.schem-hx.is-settled[data-step="3"] .hx-note,
+.schem-hx.is-settled[data-step="4"] .hx-note {
+    opacity: 1;
+}
+
+.schem-hx.has-active .hx-strand-group:not(.is-on) {
+    opacity: 0.2;
+}
+
+.schem-hx .hx-strand-group.is-picked .hx-strand-edge {
+    stroke: var(--ink);
+}
+
 @media (prefers-reduced-motion: no-preference) {
 
     .schem .hx-parent rect,
-    .schem .hx-row {
+    .schem .hx-row,
+    .schem .hx-link,
+    .schem .hx-strand-group,
+    .schem .hx-chrom {
         transition: opacity 140ms ease;
     }
+
+    .schem .hx-offspring,
+    .schem-hx .schem-arrow,
+    .schem .hx-note {
+        transition: opacity 260ms ease;
+    }
+}
+
+/* The choice of view, under the drawing */
+.seg.hx-steps {
+    align-items: center;
+    margin: 1.1rem 0 0;
+}
+
+.hx-steps label > span {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.87rem;
+}
+
+.hx-steps i {
+    font-style: normal;
+}
+
+/* The name of the current view, for when the buttons show numbers only */
+.hx-step-now {
+    display: none;
+    margin-left: 0.3rem;
+    font-size: 0.93rem;
+    font-weight: 600;
+}
+
+/* Set by script.js when the named buttons do not fit on one row */
+.hx-steps.is-compact label > span {
+    min-width: 2.3rem;
+    padding-inline: 0.4rem;
+    text-align: center;
+}
+
+/* Still the button's name for assistive technology */
+.hx-steps.is-compact i {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.hx-steps.is-compact .hx-step-now {
+    display: block;
 }
 
 .schem-status {
@@ -3533,8 +3695,13 @@ html:has(.lightbox[open]) {
         display: none;
     }
 
-    .schem.is-pending .hx-seg {
+    .schem.is-pending .hx-seg,
+    .schem.is-pending .hx-link {
         opacity: 1;
+    }
+
+    .hx-steps {
+        display: none;
     }
 
     /* Explorations: print the picture, not the controls */
